@@ -7634,6 +7634,10 @@ next@^14.1.4:
     "@next/swc-win32-ia32-msvc" "14.1.4"
     "@next/swc-win32-x64-msvc" "14.1.4"
 
+"nexth@git+https://github.com/ara-foundation/maydone.git":
+  version "0.2.0"
+  resolved "git+https://github.com/ara-foundation/maydone.git#75ab03636b1207550c15f05f232f4c15f1eb105f"
+
 no-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/no-case/-/no-case-3.0.4.tgz"

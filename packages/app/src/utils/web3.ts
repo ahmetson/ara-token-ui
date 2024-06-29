@@ -2,6 +2,20 @@ import { defaultWagmiConfig } from '@web3modal/wagmi/react/config'
 import { cookieStorage, createStorage } from 'wagmi'
 import { SITE_INFO, SITE_NAME, SITE_URL } from './site'
 import { ETH_CHAINS } from './network'
+import * as Abis from '@/abis'
+const { ...abis } = Abis
+
+console.log(`Supported Chains: `, ETH_CHAINS)
+
+export const GetAbi = (abiName: string): any => {
+  for (const [abiId, abi] of Object.entries(abis)) {
+    if (abiId === abiName) {
+      return abi
+    }
+  }
+
+  return undefined
+}
 
 export const WALLETCONNECT_PROJECT_ID = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? ''
 if (!WALLETCONNECT_PROJECT_ID) {

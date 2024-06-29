@@ -1,11 +1,22 @@
-import { mainnet, arbitrum, base, linea, polygon, optimism, scroll } from 'viem/chains'
-import { Chain, hardhat, sepolia } from 'viem/chains'
+import { Chain } from 'viem/chains'
+import * as all from 'viem/chains'
+import * as Maydone from './projects'
 
-let chains = [mainnet, arbitrum, base, linea, polygon, optimism, scroll] as [Chain, ...Chain[]]
+const { ...chains } = all
 
-if (process.env.NODE_ENV !== 'production') chains.push(sepolia, hardhat)
+export function getChain(id: number) {
+  for (const chain of Object.values(chains)) {
+    if (chain.id === id) {
+      return chain as Chain
+    }
+  }
 
-export const ETH_CHAINS = chains
+  throw new Error(`Chain with id ${id} not found`)
+}
+
+export const ETH_CHAINS = Maydone.Projects.map((project: Maydone.Project) =>
+  getChain(parseInt(Object.keys(project.smartcontracts.DaoToken)[0]))
+) as [Chain, ...Chain[]]
 
 export const NETWORK_COLORS = {
   ethereum: {
