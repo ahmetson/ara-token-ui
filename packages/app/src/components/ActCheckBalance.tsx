@@ -8,6 +8,8 @@ import { useAccount, useBalance, useSimulateContract, useWaitForTransactionRecei
 import { TokenQuantityInput } from './TokenQuantityInput'
 import { useNotifications } from '@/context/Notifications'
 import { TokenBalance } from '@/components/TokenBalance'
+import { useRouter } from 'next/navigation'
+import TreasuryCollateral from './TreasuryCollateral'
 
 type Address = `0x${string}` | undefined
 
@@ -18,6 +20,7 @@ export default function ActProject({ project }: { project?: Project }) {
   const [selectedCollateral, setSelectedCollateral] = useState<Token | undefined>(undefined)
 
   const { Add } = useNotifications()
+  const router = useRouter()
 
   const { data: balanceData } = useBalance({
     token: tokenAddress,
@@ -149,47 +152,12 @@ export default function ActProject({ project }: { project?: Project }) {
           {/* "Operation on" */}
           <h2 className='text-xl'>Redeem from Treasury</h2>
           <p className='text-gray-500 dark:text-gray-400'>Exchange your CHECK tokens for a Collateral</p>
-          <div className='max-w-sm'>
-            <label className='form-control w-2/4 max-w-xs'>
-              <div className='label'>
-                <span className='label-text'>Number of CHECK tokens</span>
-              </div>
-              {balanceData !== undefined ? (
-                <TokenQuantityInput
-                  onChange={setAmount}
-                  quantity={amount}
-                  maxValue={parseFloat(formatEther(balanceData?.value)).toFixed(18)}
-                />
-              ) : (
-                <>Loading parameters after wallet connect...</>
-              )}
-            </label>
-            <label className='form-control w-2/4 max-w-xs'>
-              <div className='label'>
-                <span className='label-text'>Collateral</span>
-              </div>
-              <ul className='w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white'>
+          <div>
+            <label className='form-control w-full'>
+              <ul className='w-full text-sm font-medium '>
                 {project?.smartcontracts.Collaterals && project?.smartcontracts.Collaterals[chainId] ? (
                   project?.smartcontracts.Collaterals[chainId].map((token) => (
-                    <li
-                      className='w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600'
-                      key={'collateral-' + token.symbol}>
-                      <div className='flex items-center ps-3'>
-                        <input
-                          onChange={(event) => changeSelectedCollateral(event.target.value)}
-                          id={'list-radio-' + token.symbol}
-                          type='radio'
-                          value={token.symbol}
-                          name='list-radio'
-                          className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
-                        />
-                        <label
-                          htmlFor={'list-radio-' + token.symbol}
-                          className='w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                          {token.symbol}
-                        </label>
-                      </div>
-                    </li>
+                    <TreasuryCollateral project={project} token={token} checkBalance={balanceData?.value} />
                   ))
                 ) : (
                   <></>
@@ -197,14 +165,6 @@ export default function ActProject({ project }: { project?: Project }) {
               </ul>
             </label>
             <div className='flex align-end w-full grid md:grid-cols-1 lg:grid-cols-2 gap-4 '>
-              <div className='flex-col justify-end m-2'>
-                <button
-                  className='btn btn-wide w-[100%] '
-                  onClick={handleSendTransation}
-                  disabled={!address || Boolean(estimateError) || amount === ''}>
-                  {isLoading ? <span className='loading loading-dots loading-sm'></span> : 'Burn'}
-                </button>
-              </div>
               <div className='flex-col justify-end mx-2 my-1'>
                 <p className='text-gray-500'>You will get 0 {selectedCollateral?.symbol}</p>
               </div>

@@ -126,6 +126,13 @@ export default function ActProject({ project }: { project?: Project }) {
   })
 
   const handleSendTransation = () => {
+    console.log(`Minting a check token, estimate error?: `, estimateError)
+    console.log(`Minting parameters:`)
+    console.log(`\tSelected project id: ${selectedDevProjectId}`)
+    console.log(`\tSelected to address: ${to}`)
+    console.log(`\tSelected amount    : ${amount} CHECK or ${parseEther(amount)} WEI`)
+    console.log(`\tAbi                :`, GetAbi(project?.smartcontracts.CheckToken[chainId!].abi!))
+    console.log(`\Check Address       :`, project?.smartcontracts.CheckToken[chainId!].address)
     if (estimateError) {
       Add(`Transaction failed: ${estimateError.cause}`, {
         type: 'error',
@@ -135,7 +142,7 @@ export default function ActProject({ project }: { project?: Project }) {
     writeContract({
       abi:
         chainId !== undefined && project?.smartcontracts.CheckToken[chainId] !== undefined
-          ? GetAbi(project?.smartcontracts.CheckToken[chainId].abi!)
+          ? GetAbi(project?.smartcontracts.CheckToken[chainId!].abi!)
           : undefined,
       address: project?.smartcontracts.CheckToken[chainId!].address as `0x${string}`,
       functionName: 'mint',

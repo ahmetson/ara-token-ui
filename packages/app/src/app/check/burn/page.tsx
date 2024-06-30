@@ -31,7 +31,7 @@ export default function SendEther() {
           )
         })}
       </ul>
-      <div className='flex align-end grid md:grid-cols-1 lg:grid-cols-2 gap-4 my-8'>
+      <div className='flex align-end gap-4 my-8'>
         <ActCheckBalance project={selectedProject} />
       </div>
     </div>

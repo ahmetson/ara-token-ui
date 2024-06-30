@@ -48,7 +48,7 @@ export function TokenQuantityInput({
         type='text'
         placeholder='0.01'
         value={amount}
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full max-w-xs bg-slate-200'
         onChange={(e) => handleChange(e)}
       />
 
