@@ -112,7 +112,7 @@ export const FrogWars: Project = {
     Collaterals: {
       59144: [
         {
-          address: '0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f',
+          address: '0x889400fB9BDE04BFdf353cC718fED3d6dDcF735F',
           abi: 'araTokenAbi',
           name: 'frogwifcat',
           symbol: 'WEF',

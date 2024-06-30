@@ -5,8 +5,6 @@ import { ETH_CHAINS } from './network'
 import * as Abis from '@/abis'
 const { ...abis } = Abis
 
-console.log(`Supported Chains: `, ETH_CHAINS)
-
 export const GetAbi = (abiName: string): any => {
   for (const [abiId, abi] of Object.entries(abis)) {
     if (abiId === abiName) {

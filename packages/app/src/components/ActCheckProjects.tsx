@@ -61,9 +61,7 @@ export default function ActProject({ project }: { project?: Project }) {
   })
 
   useEffect(() => {
-    console.log(`total amount of projects: `, totalProjectAmount)
     const aBigint = totalProjectAmount as bigint
-    console.log(`is undefined? ${aBigint === undefined}`)
     if (aBigint === undefined) {
       return
     }
@@ -75,8 +73,6 @@ export default function ActProject({ project }: { project?: Project }) {
     if (projectParams === undefined) {
       return
     }
-    console.log(`Loaded a new project params for ${selectedDevProjectId}`)
-    console.log(projectParams)
 
     const periodBigint = (projectParams as Array<any>)[2] as bigint
     const startTimeBigint = (projectParams as Array<any>)[3] as bigint
