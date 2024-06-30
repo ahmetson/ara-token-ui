@@ -149,6 +149,8 @@ export const FrogWars: Project = {
   },
 }
 
+export const ARA_CHECK_PROJECT_LIMIT = 2592000
+
 export const Ara: Project = {
   name: 'Ara',
   description: 'Ara development.',
@@ -240,7 +242,35 @@ export const Ara: Project = {
   },
   checkProjectParams: {
     1: {
+      description: 'Invalid Dev program',
+    },
+    2: {
       description: 'Ara Landing Page',
+      lungta: {
+        logos: {
+          title: 'Ara Landing Page',
+          link: 'https://forum.ara.foundation/d/12-ara-landing-page-idea',
+        },
+        aurora: {
+          title: 'Ara landing page proposal',
+          link: 'https://forum.ara.foundation/d/17-aras-landing-page-proposal/2',
+        },
+        maydone: {
+          title: 'Ara on launchpad',
+          link: 'https://maydone.ara.foundation/projects/ara',
+        },
+        act: {
+          title: 'Ara landing page progress',
+          link: 'https://forum.ara.foundation/d/18-ara-landing-page-development',
+        },
+        sangha: {
+          title: 'Ara Government',
+          link: 'https://forum.ara.foundation/d/34-ara-government',
+        },
+      },
+    },
+    3: {
+      description: 'Ara Forum',
       lungta: {
         logos: {
           title: 'Ara Landing Page',

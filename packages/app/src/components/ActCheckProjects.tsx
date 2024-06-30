@@ -1,6 +1,6 @@
 'use client'
 import { getChain } from '@/utils/network'
-import { Project, CheckProjectParams } from '@/utils/projects'
+import { Project, CheckProjectParams, ARA_CHECK_PROJECT_LIMIT } from '@/utils/projects'
 import { GetAbi } from '@/utils/web3'
 import { useEffect, useState } from 'react'
 import { formatEther, isAddress, parseEther } from 'viem'
@@ -87,8 +87,13 @@ export default function ActProject({ project }: { project?: Project }) {
     devProject.period = parseInt(periodBigint.toString())
     devProject.startTime = parseInt(startTimeBigint.toString())
     devProject.minted = (projectParams as Array<any>)[4] as bigint
-    devProject.limit = (projectParams as Array<any>)[5] as bigint
-    devProject.cancelled = (projectParams as Array<any>)[6] as boolean
+    if ((projectParams as Array<any>).length == 6) {
+      devProject.limit = BigInt(ARA_CHECK_PROJECT_LIMIT)
+      devProject.cancelled = (projectParams as Array<any>)[5] as boolean
+    } else {
+      devProject.limit = (projectParams as Array<any>)[5] as bigint
+      devProject.cancelled = (projectParams as Array<any>)[6] as boolean
+    }
     setSelectedDevProject(devProject)
   }, [projectParams])
 
@@ -197,9 +202,10 @@ export default function ActProject({ project }: { project?: Project }) {
               id='developingProjects'
               onChange={(event) => setSelectedDevProjectId(parseInt(event.target.value))}
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-              {[...Array(totalProjectAmount)].map((_, i) => {
-                return <option value={i + 1}>{i + 1 + '. ' + project.checkProjectParams[i + 1].description}</option>
-              })}
+              {totalProjectAmount !== undefined &&
+                [...Array(parseInt(totalProjectAmount!.toString()))].map((_, i) => {
+                  return <option value={i + 1}>{i + 1 + '. ' + project.checkProjectParams[i + 1].description}</option>
+                })}
             </select>
           </form>
           {selectedDevProject !== undefined ? (
@@ -217,9 +223,10 @@ export default function ActProject({ project }: { project?: Project }) {
                   <tr>
                     <td>Sprints</td>
                     <td>
-                      {Math.floor(
-                        parseFloat((selectedDevProject.amount! / selectedDevProject.limit! / BigInt(1e18)).toString())
-                      )}
+                      {1 +
+                        Math.floor(
+                          parseFloat((selectedDevProject.amount! / selectedDevProject.limit! / BigInt(1e18)).toString())
+                        )}
                     </td>
                   </tr>
                   <tr>
