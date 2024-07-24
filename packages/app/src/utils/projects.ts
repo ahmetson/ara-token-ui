@@ -117,6 +117,12 @@ export const FrogWars: Project = {
           name: 'frogwifcat',
           symbol: 'WEF',
         },
+        {
+          address: '0x176211869ca2b568f2a7d4ee941e073a821ee1ff',
+          abi: 'araTokenAbi',
+          name: 'USDC',
+          symbol: 'USDC',
+        },
       ],
     },
   },
