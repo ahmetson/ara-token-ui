@@ -60,7 +60,7 @@ export default function RootLayout(props: PropsWithChildren) {
         />
       </head>
 
-      <body>
+      <body suppressHydrationWarning={true}>
         <Web3Provider initialState={initialState}>
           <NotificationProvider>
             <Layout>{props.children}</Layout>

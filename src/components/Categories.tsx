@@ -13,25 +13,62 @@ import { LinkComponent } from './LinkComponent'
 
 // Todo: get from the server
 const stats = [
-  { id: 'it-category', href: '/tasks?category=it', image: ItImg.src, width: ItImg.width, height: ItImg.height },
-  { id: 'art-category', href: '/tasks?category=art', image: ArtImg.src, width: ItImg.width, height: ItImg.height },
+  {
+    id: 'it-category',
+    name: 'IT & engineering',
+    href: '/tasks?category=it-category',
+    image: ItImg.src,
+    width: ItImg.width,
+    height: ItImg.height,
+  },
+  {
+    id: 'art-category',
+    name: 'Design',
+    href: '/tasks?category=art-category',
+    image: ArtImg.src,
+    width: ItImg.width,
+    height: ItImg.height,
+  },
   {
     id: 'ads-category',
-    href: '/tasks?category=ads',
+    href: '/tasks?category=ads-category',
+    name: 'Socila Media & Marketing',
     image: AdsImg.src,
     width: ItImg.width,
     height: ItImg.height,
   },
-  { id: 'seo-category', href: '/tasks?category=seo', image: SeoImg.src, width: ItImg.width, height: ItImg.height },
-  { id: 'biz-category', href: '/tasks?category=biz', image: BizImg.src, width: ItImg.width, height: ItImg.height },
+  {
+    id: 'seo-category',
+    name: 'SEO & Traffic',
+    href: '/tasks?category=seo-category',
+    image: SeoImg.src,
+    width: ItImg.width,
+    height: ItImg.height,
+  },
+  {
+    id: 'biz-category',
+    name: 'Business & Life',
+    href: '/tasks?category=biz-category',
+    image: BizImg.src,
+    width: ItImg.width,
+    height: ItImg.height,
+  },
   {
     id: 'text-category',
-    href: '/tasks?category=text',
+    name: 'Text & Translation',
+    href: '/tasks?category=text-category',
     image: TextImg.src,
     width: ItImg.width,
     height: ItImg.height,
   },
-  { id: 'fx-category', href: '/tasks?category=fx', image: FxImg.src, width: ItImg.width, height: ItImg.height },
+  {
+    id: 'fx-category',
+    name: 'Audio, Visual & Effects',
+    href: '/tasks?category=fx-category',
+    image: FxImg.src,
+    width: ItImg.width,
+    height: ItImg.height,
+  },
 ]
 
 export function Categories() {
@@ -53,6 +90,22 @@ export function Categories() {
           </dl>
         </div>
       </NestedLayout>
+    </div>
+  )
+}
+
+export function CategoriesNav() {
+  return (
+    <div className='bg-white py-6 px-5 sm:py-8 shadow-md'>
+      <dl className='flex flex-row  text-center justify-center px-4'>
+        {stats.map((stat) => (
+          <dt key={stat.id + '-nav'} className='text-base leading-4 mx-4'>
+            <LinkComponent href={stat.href} className='text-blue-600 hover:text-blue-400'>
+              {stat.name}
+            </LinkComponent>
+          </dt>
+        ))}
+      </dl>
     </div>
   )
 }
