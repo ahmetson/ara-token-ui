@@ -7,3 +7,6 @@ export const SITE_URL = 'https://token.ara.foundation'
 
 export const SOCIAL_TWITTER = 'ara_foundation_'
 export const SOCIAL_GITHUB = 'ara-foundation/token-ui'
+export const SOCIAL_YOUTUBE = ''
+export const SOCIAL_DISCORD = ''
+export const SOCIAL_TELEGRAM = ''

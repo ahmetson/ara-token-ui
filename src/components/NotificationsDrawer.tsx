@@ -11,7 +11,9 @@ export function NotificationsDrawer() {
   const className = 'shrink-0 h-5 w-5'
 
   return (
-    <div className='drawer drawer-end'>
+    <div
+      className='drawer drawer-end'
+      style={{ width: 'auto', lineHeight: '3rem', height: '3rem', display: 'flex', alignItems: 'center' }}>
       <input id='my-drawer' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content'>
         <label

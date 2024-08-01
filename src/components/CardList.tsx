@@ -18,6 +18,8 @@ interface Props {
 export function CardList(props: Props) {
   const className = props.className ?? ''
 
+  return <></>
+
   return (
     <section className={className}>
       {props.title && <h3 className='text-lg mb-4'>{props.title}</h3>}
