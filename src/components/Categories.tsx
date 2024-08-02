@@ -11,8 +11,17 @@ import FxImg from '@/assets/cats/fx.jpg'
 import Image from 'next/image'
 import { LinkComponent } from './LinkComponent'
 
+export type CategoryType = {
+  id: string
+  name: string
+  href: string
+  image: string
+  width: number
+  height: number
+}
+
 // Todo: get from the server
-const stats = [
+const stats: CategoryType[] = [
   {
     id: 'it-category',
     name: 'IT & engineering',
@@ -70,6 +79,14 @@ const stats = [
     height: ItImg.height,
   },
 ]
+
+export function categoryById(id: string): undefined | CategoryType {
+  for (let c of stats) {
+    if (c.id === id) {
+      return c
+    }
+  }
+}
 
 export function Categories() {
   return (

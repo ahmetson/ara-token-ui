@@ -41,6 +41,7 @@ export type TaskType = {
   projectImage?: string
   projectVideo?: string
   projectUrl?: string
+  projectDescription?: string
   maintainerFirstName: string
   maintainerLastName: string
   maintainerUserName: string
