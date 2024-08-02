@@ -55,13 +55,21 @@ export const araTokenAbi = [
     inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidApprover',
   },
-  { type: 'error', inputs: [{ name: 'cap', internalType: 'uint256', type: 'uint256' }], name: 'ERC20InvalidCap' },
+  {
+    type: 'error',
+    inputs: [{ name: 'cap', internalType: 'uint256', type: 'uint256' }],
+    name: 'ERC20InvalidCap',
+  },
   {
     type: 'error',
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -73,16 +81,38 @@ export const araTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
@@ -90,8 +120,18 @@ export const araTokenAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'previousAdminRole', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'newAdminRole', internalType: 'bytes32', type: 'bytes32', indexed: true },
+      {
+        name: 'previousAdminRole',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: true,
+      },
+      {
+        name: 'newAdminRole',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: true,
+      },
     ],
     name: 'RoleAdminChanged',
   },
@@ -100,8 +140,18 @@ export const araTokenAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'account', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sender', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'RoleGranted',
   },
@@ -110,8 +160,18 @@ export const araTokenAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'account', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sender', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'RoleRevoked',
   },
@@ -121,7 +181,12 @@ export const araTokenAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -214,7 +279,13 @@ export const araTokenAbi = [
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
     stateMutability: 'view',
   },
-  { type: 'function', inputs: [], name: 'initialize', outputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'initialize',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
   {
     type: 'function',
     inputs: [
@@ -312,7 +383,10 @@ export const araTokenAddress = {
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x889400fb9bde04bfdf353cc718fed3d6ddcf735f)
  */
-export const araTokenConfig = { address: araTokenAddress, abi: araTokenAbi } as const
+export const araTokenConfig = {
+  address: araTokenAddress,
+  abi: araTokenAbi,
+} as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AccessControlUpgradeable
@@ -333,7 +407,14 @@ export const accessControlUpgradeableAbi = [
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
@@ -341,8 +422,18 @@ export const accessControlUpgradeableAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'previousAdminRole', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'newAdminRole', internalType: 'bytes32', type: 'bytes32', indexed: true },
+      {
+        name: 'previousAdminRole',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: true,
+      },
+      {
+        name: 'newAdminRole',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: true,
+      },
     ],
     name: 'RoleAdminChanged',
   },
@@ -351,8 +442,18 @@ export const accessControlUpgradeableAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'account', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sender', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'RoleGranted',
   },
@@ -361,8 +462,18 @@ export const accessControlUpgradeableAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'account', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sender', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'RoleRevoked',
   },
@@ -519,7 +630,11 @@ export const checkTokenAbi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -531,25 +646,57 @@ export const checkTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: true },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
       { name: 'to', internalType: 'address', type: 'address', indexed: false },
-      { name: 'amount', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'amount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'payload', internalType: 'bytes', type: 'bytes', indexed: false },
     ],
     name: 'Mint',
@@ -558,7 +705,12 @@ export const checkTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'NewProjectAction',
@@ -567,10 +719,30 @@ export const checkTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'maintainer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: true },
-      { name: 'period', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'budget', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'maintainer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+      {
+        name: 'period',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'budget',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'NewProjectInit',
   },
@@ -578,9 +750,24 @@ export const checkTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'NewProjectVote',
@@ -591,7 +778,12 @@ export const checkTokenAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -640,7 +832,7 @@ export const checkTokenAbi = [
     type: 'function',
     inputs: [],
     name: 'ara',
-    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
+    outputs: [{ name: '', internalType: 'contract ERC20', type: 'address' }],
     stateMutability: 'view',
   },
   {
@@ -679,7 +871,7 @@ export const checkTokenAbi = [
     type: 'function',
     inputs: [],
     name: 'main',
-    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
+    outputs: [{ name: '', internalType: 'contract ERC20', type: 'address' }],
     stateMutability: 'view',
   },
   {
@@ -852,7 +1044,10 @@ export const checkTokenAddress = {
 /**
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xD38359e85a064EDF54D4Bc017c92Af2AcDa194Fa)
  */
-export const checkTokenConfig = { address: checkTokenAddress, abi: checkTokenAbi } as const
+export const checkTokenConfig = {
+  address: checkTokenAddress,
+  abi: checkTokenAbi,
+} as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ContextUpgradeable
@@ -864,10 +1059,253 @@ export const contextUpgradeableAbi = [
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
 ] as const
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ContributorDeposit
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const contributorDepositAbi = [
+  { type: 'error', inputs: [], name: 'InvalidInitialization' },
+  { type: 'error', inputs: [], name: 'NotInitializing' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'OwnableInvalidOwner',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'OwnableUnauthorizedAccount',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'amount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'projectId',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+      {
+        name: 'checkProjectId',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+      {
+        name: 'taskId',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+      { name: 'succeed', internalType: 'bool', type: 'bool', indexed: false },
+    ],
+    name: 'CancelLock',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
+    name: 'Initialized',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'amount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'projectId',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+      {
+        name: 'checkProjectId',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+      {
+        name: 'taskId',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+    ],
+    name: 'LockTask',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'previousOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'newOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+    ],
+    name: 'OwnershipTransferred',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'ara',
+    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'projectId', internalType: 'string', type: 'string' },
+      { name: 'checkProjectId', internalType: 'string', type: 'string' },
+      { name: 'taskId', internalType: 'string', type: 'string' },
+    ],
+    name: 'deposit',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'address', type: 'address' }],
+    name: 'deposits',
+    outputs: [
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'projectId', internalType: 'string', type: 'string' },
+      { name: 'checkProjectId', internalType: 'string', type: 'string' },
+      { name: 'taskId', internalType: 'string', type: 'string' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'owner_', internalType: 'address', type: 'address' },
+      { name: 'main_', internalType: 'address', type: 'address' },
+      { name: 'ara_', internalType: 'address', type: 'address' },
+    ],
+    name: 'initialize',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'main',
+    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'owner',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: '', internalType: 'string', type: 'string' },
+      { name: '', internalType: 'string', type: 'string' },
+      { name: '', internalType: 'string', type: 'string' },
+    ],
+    name: 'reverseDeposits',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+    name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'user', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'succeed', internalType: 'bool', type: 'bool' },
+    ],
+    name: 'withdraw',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const
+
+/**
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const contributorDepositAddress = {
+  8453: '0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71',
+} as const
+
+/**
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const contributorDepositConfig = {
+  address: contributorDepositAddress,
+  abi: contributorDepositAbi,
+} as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ERC165Upgradeable
@@ -879,7 +1317,14 @@ export const erc165UpgradeableAbi = [
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
@@ -924,7 +1369,11 @@ export const erc20Abi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -934,9 +1383,24 @@ export const erc20Abi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
@@ -946,7 +1410,12 @@ export const erc20Abi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -1064,13 +1533,21 @@ export const erc20CappedUpgradeableAbi = [
     inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidApprover',
   },
-  { type: 'error', inputs: [{ name: 'cap', internalType: 'uint256', type: 'uint256' }], name: 'ERC20InvalidCap' },
+  {
+    type: 'error',
+    inputs: [{ name: 'cap', internalType: 'uint256', type: 'uint256' }],
+    name: 'ERC20InvalidCap',
+  },
   {
     type: 'error',
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -1082,16 +1559,38 @@ export const erc20CappedUpgradeableAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
@@ -1100,7 +1599,12 @@ export const erc20CappedUpgradeableAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -1222,7 +1726,11 @@ export const erc20UpgradeableAbi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -1234,16 +1742,38 @@ export const erc20UpgradeableAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
@@ -1252,7 +1782,12 @@ export const erc20UpgradeableAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -1377,8 +1912,18 @@ export const iAccessControlAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'previousAdminRole', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'newAdminRole', internalType: 'bytes32', type: 'bytes32', indexed: true },
+      {
+        name: 'previousAdminRole',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: true,
+      },
+      {
+        name: 'newAdminRole',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: true,
+      },
     ],
     name: 'RoleAdminChanged',
   },
@@ -1387,8 +1932,18 @@ export const iAccessControlAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'account', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sender', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'RoleGranted',
   },
@@ -1397,8 +1952,18 @@ export const iAccessControlAbi = [
     anonymous: false,
     inputs: [
       { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'account', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sender', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'RoleRevoked',
   },
@@ -1452,6 +2017,20 @@ export const iAccessControlAbi = [
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// IAddon
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const iAddonAbi = [
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId_', internalType: 'uint256', type: 'uint256' }],
+    name: 'setProjectId',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // IBridge
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1463,6 +2042,59 @@ export const iBridgeAbi = [
       { name: '', internalType: 'address', type: 'address' },
     ],
     name: 'transferOut',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'nonpayable',
+  },
+] as const
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ICheck
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const iCheckAbi = [
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId', internalType: 'uint256', type: 'uint256' }],
+    name: 'addonPriceParams',
+    outputs: [
+      { name: 'collateral', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'collateral', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'checkAmountForCollateral',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId', internalType: 'uint256', type: 'uint256' }],
+    name: 'isCancelled',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId', internalType: 'uint256', type: 'uint256' }],
+    name: 'maintainerOf',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'projectId_', internalType: 'uint256', type: 'uint256' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'payload', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'mintByAddon',
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
     stateMutability: 'nonpayable',
   },
@@ -1544,9 +2176,24 @@ export const ierc20Abi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
@@ -1556,7 +2203,12 @@ export const ierc20Abi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -1650,7 +2302,11 @@ export const ierc20ErrorsAbi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -1667,9 +2323,24 @@ export const ierc20MetadataAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
@@ -1679,7 +2350,12 @@ export const ierc20MetadataAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -1762,6 +2438,165 @@ export const ierc20MetadataAbi = [
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// IERC721
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const ierc721Abi = [
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'approved',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'Approval',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
+    ],
+    name: 'ApprovalForAll',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'Transfer',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'approve',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'balanceOf',
+    outputs: [{ name: 'balance', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    name: 'getApproved',
+    outputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'owner', internalType: 'address', type: 'address' },
+      { name: 'operator', internalType: 'address', type: 'address' },
+    ],
+    name: 'isApprovedForAll',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    name: 'ownerOf',
+    outputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'safeTransferFrom',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'safeTransferFrom',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'approved', internalType: 'bool', type: 'bool' },
+    ],
+    name: 'setApprovalForAll',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+    name: 'supportsInterface',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'transferFrom',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // IERC721Errors
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1793,7 +2628,11 @@ export const ierc721ErrorsAbi = [
     inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
     name: 'ERC721InvalidOperator',
   },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'ERC721InvalidOwner',
+  },
   {
     type: 'error',
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
@@ -1887,7 +2726,14 @@ export const initializableAbi = [
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
 ] as const
@@ -1928,7 +2774,11 @@ export const mainTokenAbi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -1940,23 +2790,50 @@ export const mainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'sessionId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'sessionId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'RevokeAction',
@@ -1965,8 +2842,18 @@ export const mainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'initializer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sessionId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'initializer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sessionId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: false },
     ],
@@ -1976,9 +2863,24 @@ export const mainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sessionId', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sessionId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'RevokeVote',
@@ -1989,7 +2891,12 @@ export const mainTokenAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -2213,7 +3120,10 @@ export const mainTokenAddress = {
 /**
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xE20A78EFA6A6f14CE1229f2CF34082ABb78e92Fd)
  */
-export const mainTokenConfig = { address: mainTokenAddress, abi: mainTokenAbi } as const
+export const mainTokenConfig = {
+  address: mainTokenAddress,
+  abi: mainTokenAbi,
+} as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Minter
@@ -2225,7 +3135,11 @@ export const mainTokenConfig = { address: mainTokenAddress, abi: mainTokenAbi } 
 export const minterAbi = [
   { type: 'error', inputs: [], name: 'InvalidInitialization' },
   { type: 'error', inputs: [], name: 'NotInitializing' },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'OwnableInvalidOwner' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'OwnableInvalidOwner',
+  },
   {
     type: 'error',
     inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
@@ -2236,8 +3150,18 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'BridgeVote',
@@ -2246,7 +3170,12 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'bridge', internalType: 'address', type: 'address', indexed: false },
+      {
+        name: 'bridge',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'BridgeVotingAction',
@@ -2255,8 +3184,18 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'initializer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'bridge', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'initializer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'bridge',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'BridgeVotingInit',
   },
@@ -2264,9 +3203,24 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'token', internalType: 'address', type: 'address', indexed: false },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'token',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'CollateralVote',
@@ -2275,7 +3229,12 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'token', internalType: 'address', type: 'address', indexed: false },
+      {
+        name: 'token',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'CollateralVotingAction',
@@ -2284,18 +3243,50 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'initializer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'token', internalType: 'address', type: 'address', indexed: true },
-      { name: 'decimals', internalType: 'uint8', type: 'uint8', indexed: false },
-      { name: 'feed', internalType: 'address', type: 'address', indexed: false },
-      { name: 'feedDecimals', internalType: 'uint8', type: 'uint8', indexed: false },
+      {
+        name: 'initializer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'token',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'decimals',
+        internalType: 'uint8',
+        type: 'uint8',
+        indexed: false,
+      },
+      {
+        name: 'feed',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'feedDecimals',
+        internalType: 'uint8',
+        type: 'uint8',
+        indexed: false,
+      },
     ],
     name: 'CollateralVotingInit',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
@@ -2303,11 +3294,31 @@ export const minterAbi = [
     anonymous: false,
     inputs: [
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'collateral', internalType: 'address', type: 'address', indexed: false },
-      { name: 'araAmount', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'usdAmount', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'collateral',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'araAmount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'usdAmount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'round', internalType: 'uint8', type: 'uint8', indexed: false },
-      { name: 'vestingId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'vestingId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Mint',
   },
@@ -2315,8 +3326,18 @@ export const minterAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'previousOwner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'newOwner', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'previousOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'newOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'OwnershipTransferred',
   },
@@ -2431,7 +3452,13 @@ export const minterAbi = [
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'view',
   },
-  { type: 'function', inputs: [], name: 'initialize', outputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'initialize',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
   {
     type: 'function',
     inputs: [{ name: 'addr_', internalType: 'address', type: 'address' }],
@@ -2483,7 +3510,13 @@ export const minterAbi = [
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'nonpayable',
   },
-  { type: 'function', inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
   {
     type: 'function',
     inputs: [{ name: '', internalType: 'uint8', type: 'uint8' }],
@@ -2504,7 +3537,13 @@ export const minterAbi = [
     outputs: [],
     stateMutability: 'nonpayable',
   },
-  { type: 'function', inputs: [], name: 'setBridgeAction', outputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'setBridgeAction',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
   {
     type: 'function',
     inputs: [{ name: 'bridge_', internalType: 'address', type: 'address' }],
@@ -2615,13 +3654,17 @@ export const minterAddress = {
 export const minterConfig = { address: minterAddress, abi: minterAbi } as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// OwnableUpgradeable
+// NftAddon
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const ownableUpgradeableAbi = [
+export const nftAddonAbi = [
   { type: 'error', inputs: [], name: 'InvalidInitialization' },
   { type: 'error', inputs: [], name: 'NotInitializing' },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'OwnableInvalidOwner' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'OwnableInvalidOwner',
+  },
   {
     type: 'error',
     inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
@@ -2630,15 +3673,261 @@ export const ownableUpgradeableAbi = [
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'previousOwner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'newOwner', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'nftId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      { name: 'payload', internalType: 'bytes', type: 'bytes', indexed: false },
+    ],
+    name: 'NewOrder',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'nftId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'OrderComplete',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'previousOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'newOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+    ],
+    name: 'OwnershipTransferred',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'ProjectIdSet',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'nftId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+      {
+        name: 'contributor',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'checkAmount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      { name: 'payload', internalType: 'bytes', type: 'bytes', indexed: false },
+    ],
+    name: 'TaskComplete',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'address', type: 'address' }],
+    name: 'activeOrders',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'check',
+    outputs: [{ name: '', internalType: 'contract ICheck', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'owner_', internalType: 'address', type: 'address' },
+      { name: 'check_', internalType: 'address', type: 'address' },
+      { name: 'nft_', internalType: 'address', type: 'address' },
+    ],
+    name: 'initialize',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'nftId', internalType: 'uint256', type: 'uint256' },
+      { name: 'payload', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'newOrder',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'nft',
+    outputs: [{ name: '', internalType: 'contract IERC721', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: 'orders',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'owner',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: 'params',
+    outputs: [
+      { name: 'minted', internalType: 'uint256', type: 'uint256' },
+      { name: 'payload', internalType: 'bytes', type: 'bytes' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'projectId',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId_', internalType: 'uint256', type: 'uint256' }],
+    name: 'setProjectId',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'nftId', internalType: 'uint256', type: 'uint256' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'collateralAmount', internalType: 'uint256', type: 'uint256' },
+      { name: 'payload', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'taskComplete',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+    name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OwnableUpgradeable
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const ownableUpgradeableAbi = [
+  { type: 'error', inputs: [], name: 'InvalidInitialization' },
+  { type: 'error', inputs: [], name: 'NotInitializing' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'OwnableInvalidOwner',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'OwnableUnauthorizedAccount',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
+    name: 'Initialized',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'previousOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'newOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
     ],
     name: 'OwnershipTransferred',
   },
@@ -2649,7 +3938,13 @@ export const ownableUpgradeableAbi = [
     outputs: [{ name: '', internalType: 'address', type: 'address' }],
     stateMutability: 'view',
   },
-  { type: 'function', inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
   {
     type: 'function',
     inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
@@ -2696,7 +3991,11 @@ export const projectCheckTokenAbi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -2708,9 +4007,24 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
@@ -2718,9 +4032,24 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'token', internalType: 'address', type: 'address', indexed: false },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'token',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'CollateralVote',
@@ -2729,7 +4058,12 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'token', internalType: 'address', type: 'address', indexed: false },
+      {
+        name: 'token',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'CollateralVotingAction',
@@ -2738,25 +4072,57 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'initializer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'token', internalType: 'address', type: 'address', indexed: true },
-      { name: 'votingPeriod', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'initializer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'token',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'votingPeriod',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'CollateralVotingInit',
   },
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
   {
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: true },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
       { name: 'to', internalType: 'address', type: 'address', indexed: false },
-      { name: 'amount', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'amount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'payload', internalType: 'bytes', type: 'bytes', indexed: false },
     ],
     name: 'Mint',
@@ -2765,7 +4131,49 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'maintainer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+      {
+        name: 'addon',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'collateral',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'amount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'NewAddonInit',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'NewProjectAction',
@@ -2774,10 +4182,30 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'maintainer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: true },
-      { name: 'period', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'budget', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'maintainer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+      {
+        name: 'period',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'budget',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'NewProjectInit',
   },
@@ -2785,9 +4213,24 @@ export const projectCheckTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'projectId', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'projectId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'NewProjectVote',
@@ -2798,9 +4241,38 @@ export const projectCheckTokenAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId_', internalType: 'uint256', type: 'uint256' }],
+    name: 'addonPriceParams',
+    outputs: [
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: 'addons',
+    outputs: [
+      { name: 'maintainer', internalType: 'address', type: 'address' },
+      { name: 'collateral', internalType: 'address', type: 'address' },
+      { name: 'addon', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'minted', internalType: 'uint256', type: 'uint256' },
+      { name: 'cancelled', internalType: 'bool', type: 'bool' },
+    ],
+    stateMutability: 'view',
   },
   {
     type: 'function',
@@ -2838,6 +4310,23 @@ export const projectCheckTokenAbi = [
   },
   {
     type: 'function',
+    inputs: [
+      { name: 'collateral', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'checkAmountForCollateral',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'address', type: 'address' }],
+    name: 'checkPerCollateral',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
     inputs: [{ name: '', internalType: 'address', type: 'address' }],
     name: 'collateralVotings',
     outputs: [
@@ -2860,7 +4349,7 @@ export const projectCheckTokenAbi = [
     type: 'function',
     inputs: [],
     name: 'dao',
-    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
+    outputs: [{ name: '', internalType: 'contract ERC20', type: 'address' }],
     stateMutability: 'view',
   },
   {
@@ -2884,6 +4373,13 @@ export const projectCheckTokenAbi = [
   },
   {
     type: 'function',
+    inputs: [{ name: 'projectId_', internalType: 'uint256', type: 'uint256' }],
+    name: 'isCancelled',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
     inputs: [{ name: 'addr_', internalType: 'address', type: 'address' }],
     name: 'isCollateral',
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
@@ -2893,7 +4389,14 @@ export const projectCheckTokenAbi = [
     type: 'function',
     inputs: [],
     name: 'main',
-    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
+    outputs: [{ name: '', internalType: 'contract ERC20', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'projectId_', internalType: 'uint256', type: 'uint256' }],
+    name: 'maintainerOf',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
     stateMutability: 'view',
   },
   {
@@ -2910,10 +4413,35 @@ export const projectCheckTokenAbi = [
   },
   {
     type: 'function',
+    inputs: [
+      { name: 'projectId_', internalType: 'uint256', type: 'uint256' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'payload', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'mintByAddon',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
     inputs: [],
     name: 'name',
     outputs: [{ name: '', internalType: 'string', type: 'string' }],
     stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'projectLeader', internalType: 'address', type: 'address' },
+      { name: 'addon', internalType: 'address', type: 'address' },
+      { name: 'votingPeriod', internalType: 'uint256', type: 'uint256' },
+      { name: 'collateral', internalType: 'address', type: 'address' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'newAddonInit',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'nonpayable',
   },
   {
     type: 'function',
@@ -2969,7 +4497,27 @@ export const projectCheckTokenAbi = [
       { name: 'countYes', internalType: 'uint256', type: 'uint256' },
       { name: 'countNo', internalType: 'uint256', type: 'uint256' },
       { name: 'votingPeriod', internalType: 'uint256', type: 'uint256' },
+      {
+        name: 'addonParams',
+        internalType: 'struct ProjectCheckToken.Addon',
+        type: 'tuple',
+        components: [
+          { name: 'maintainer', internalType: 'address', type: 'address' },
+          { name: 'collateral', internalType: 'address', type: 'address' },
+          { name: 'addon', internalType: 'address', type: 'address' },
+          { name: 'amount', internalType: 'uint256', type: 'uint256' },
+          { name: 'minted', internalType: 'uint256', type: 'uint256' },
+          { name: 'cancelled', internalType: 'bool', type: 'bool' },
+        ],
+      },
     ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'priceSetter',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
     stateMutability: 'view',
   },
   {
@@ -2998,10 +4546,20 @@ export const projectCheckTokenAbi = [
     type: 'function',
     inputs: [
       { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'checkAmount', internalType: 'uint256', type: 'uint256' },
       { name: 'collateral', internalType: 'address', type: 'address' },
     ],
     name: 'redeemFromTreasury',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'collateral', internalType: 'address', type: 'address' },
+      { name: 'perCheck', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'setCheckPerCollateral',
     outputs: [],
     stateMutability: 'nonpayable',
   },
@@ -3029,6 +4587,13 @@ export const projectCheckTokenAbi = [
       { name: 'agree', internalType: 'bool', type: 'bool' },
     ],
     name: 'setCollateralVote',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '_priceSetter', internalType: 'address', type: 'address' }],
+    name: 'setPriceSetter',
     outputs: [],
     stateMutability: 'nonpayable',
   },
@@ -3083,7 +4648,10 @@ export const projectCheckTokenAddress = {
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
  */
-export const projectCheckTokenConfig = { address: projectCheckTokenAddress, abi: projectCheckTokenAbi } as const
+export const projectCheckTokenConfig = {
+  address: projectCheckTokenAddress,
+  abi: projectCheckTokenAbi,
+} as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ProjectMainToken
@@ -3132,7 +4700,11 @@ export const projectMainTokenAbi = [
     inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
     name: 'ERC20InvalidReceiver',
   },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC20InvalidSender',
+  },
   {
     type: 'error',
     inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
@@ -3142,9 +4714,24 @@ export const projectMainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'spender', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'spender',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Approval',
   },
@@ -3152,7 +4739,12 @@ export const projectMainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'sessionId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'sessionId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'RevokeAction',
@@ -3161,8 +4753,18 @@ export const projectMainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'initializer', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sessionId', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'initializer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sessionId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: false },
     ],
@@ -3172,9 +4774,24 @@ export const projectMainTokenAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
-      { name: 'voter', internalType: 'address', type: 'address', indexed: true },
-      { name: 'sessionId', internalType: 'uint256', type: 'uint256', indexed: false },
-      { name: 'votePower', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'voter',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'sessionId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'votePower',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
       { name: 'agree', internalType: 'bool', type: 'bool', indexed: false },
     ],
     name: 'RevokeVote',
@@ -3185,7 +4802,12 @@ export const projectMainTokenAbi = [
     inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'value', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
     ],
     name: 'Transfer',
   },
@@ -3395,7 +5017,10 @@ export const projectMainTokenAddress = {
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x9e90f6ad0E1916995b8fd6A0AEE36732f7A2A20a)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x6921482cEf17ecd8382A96B4e6E3749a9B6fcFd0)
  */
-export const projectMainTokenConfig = { address: projectMainTokenAddress, abi: projectMainTokenAbi } as const
+export const projectMainTokenConfig = {
+  address: projectMainTokenAddress,
+  abi: projectMainTokenAbi,
+} as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ReentrancyGuardUpgradeable
@@ -3408,7 +5033,14 @@ export const reentrancyGuardUpgradeableAbi = [
   {
     type: 'event',
     anonymous: false,
-    inputs: [{ name: 'version', internalType: 'uint64', type: 'uint64', indexed: false }],
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
     name: 'Initialized',
   },
 ] as const
@@ -3424,7 +5056,10 @@ export const reentrancyGuardUpgradeableAbi = [
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x889400fb9bde04bfdf353cc718fed3d6ddcf735f)
  */
-export const readAraToken = /*#__PURE__*/ createReadContract({ abi: araTokenAbi, address: araTokenAddress })
+export const readAraToken = /*#__PURE__*/ createReadContract({
+  abi: araTokenAbi,
+  address: araTokenAddress,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link araTokenAbi}__ and `functionName` set to `"DEFAULT_ADMIN_ROLE"`
@@ -3589,7 +5224,10 @@ export const readAraTokenTotalSupply = /*#__PURE__*/ createReadContract({
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x889400fb9bde04bfdf353cc718fed3d6ddcf735f)
  */
-export const writeAraToken = /*#__PURE__*/ createWriteContract({ abi: araTokenAbi, address: araTokenAddress })
+export const writeAraToken = /*#__PURE__*/ createWriteContract({
+  abi: araTokenAbi,
+  address: araTokenAddress,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link araTokenAbi}__ and `functionName` set to `"approve"`
@@ -3715,7 +5353,10 @@ export const writeAraTokenTransferFrom = /*#__PURE__*/ createWriteContract({
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x889400fb9bde04bfdf353cc718fed3d6ddcf735f)
  */
-export const simulateAraToken = /*#__PURE__*/ createSimulateContract({ abi: araTokenAbi, address: araTokenAddress })
+export const simulateAraToken = /*#__PURE__*/ createSimulateContract({
+  abi: araTokenAbi,
+  address: araTokenAddress,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link araTokenAbi}__ and `functionName` set to `"approve"`
@@ -3841,7 +5482,10 @@ export const simulateAraTokenTransferFrom = /*#__PURE__*/ createSimulateContract
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f)
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x889400fb9bde04bfdf353cc718fed3d6ddcf735f)
  */
-export const watchAraTokenEvent = /*#__PURE__*/ createWatchContractEvent({ abi: araTokenAbi, address: araTokenAddress })
+export const watchAraTokenEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: araTokenAbi,
+  address: araTokenAddress,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link araTokenAbi}__ and `eventName` set to `"Approval"`
@@ -3924,7 +5568,9 @@ export const watchAraTokenTransferEvent = /*#__PURE__*/ createWatchContractEvent
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link accessControlUpgradeableAbi}__
  */
-export const readAccessControlUpgradeable = /*#__PURE__*/ createReadContract({ abi: accessControlUpgradeableAbi })
+export const readAccessControlUpgradeable = /*#__PURE__*/ createReadContract({
+  abi: accessControlUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link accessControlUpgradeableAbi}__ and `functionName` set to `"DEFAULT_ADMIN_ROLE"`
@@ -3961,7 +5607,9 @@ export const readAccessControlUpgradeableSupportsInterface = /*#__PURE__*/ creat
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link accessControlUpgradeableAbi}__
  */
-export const writeAccessControlUpgradeable = /*#__PURE__*/ createWriteContract({ abi: accessControlUpgradeableAbi })
+export const writeAccessControlUpgradeable = /*#__PURE__*/ createWriteContract({
+  abi: accessControlUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link accessControlUpgradeableAbi}__ and `functionName` set to `"grantRole"`
@@ -4060,7 +5708,9 @@ export const watchAccessControlUpgradeableRoleRevokedEvent = /*#__PURE__*/ creat
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link aggregatorV3InterfaceAbi}__
  */
-export const readAggregatorV3Interface = /*#__PURE__*/ createReadContract({ abi: aggregatorV3InterfaceAbi })
+export const readAggregatorV3Interface = /*#__PURE__*/ createReadContract({
+  abi: aggregatorV3InterfaceAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link aggregatorV3InterfaceAbi}__ and `functionName` set to `"decimals"`
@@ -4107,7 +5757,10 @@ export const readAggregatorV3InterfaceVersion = /*#__PURE__*/ createReadContract
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xD38359e85a064EDF54D4Bc017c92Af2AcDa194Fa)
  */
-export const readCheckToken = /*#__PURE__*/ createReadContract({ abi: checkTokenAbi, address: checkTokenAddress })
+export const readCheckToken = /*#__PURE__*/ createReadContract({
+  abi: checkTokenAbi,
+  address: checkTokenAddress,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link checkTokenAbi}__ and `functionName` set to `"HALF_SUPPLY"`
@@ -4279,7 +5932,10 @@ export const readCheckTokenTotalSupply = /*#__PURE__*/ createReadContract({
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xD38359e85a064EDF54D4Bc017c92Af2AcDa194Fa)
  */
-export const writeCheckToken = /*#__PURE__*/ createWriteContract({ abi: checkTokenAbi, address: checkTokenAddress })
+export const writeCheckToken = /*#__PURE__*/ createWriteContract({
+  abi: checkTokenAbi,
+  address: checkTokenAddress,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link checkTokenAbi}__ and `functionName` set to `"approve"`
@@ -4634,9 +6290,260 @@ export const watchContextUpgradeableInitializedEvent = /*#__PURE__*/ createWatch
 })
 
 /**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link contributorDepositAbi}__
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const readContributorDeposit = /*#__PURE__*/ createReadContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"ara"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const readContributorDepositAra = /*#__PURE__*/ createReadContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'ara',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"deposits"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const readContributorDepositDeposits = /*#__PURE__*/ createReadContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'deposits',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"main"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const readContributorDepositMain = /*#__PURE__*/ createReadContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'main',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"owner"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const readContributorDepositOwner = /*#__PURE__*/ createReadContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'owner',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"reverseDeposits"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const readContributorDepositReverseDeposits = /*#__PURE__*/ createReadContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'reverseDeposits',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link contributorDepositAbi}__
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const writeContributorDeposit = /*#__PURE__*/ createWriteContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"deposit"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const writeContributorDepositDeposit = /*#__PURE__*/ createWriteContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'deposit',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"initialize"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const writeContributorDepositInitialize = /*#__PURE__*/ createWriteContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'initialize',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"renounceOwnership"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const writeContributorDepositRenounceOwnership = /*#__PURE__*/ createWriteContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'renounceOwnership',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"transferOwnership"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const writeContributorDepositTransferOwnership = /*#__PURE__*/ createWriteContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'transferOwnership',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"withdraw"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const writeContributorDepositWithdraw = /*#__PURE__*/ createWriteContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'withdraw',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link contributorDepositAbi}__
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const simulateContributorDeposit = /*#__PURE__*/ createSimulateContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"deposit"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const simulateContributorDepositDeposit = /*#__PURE__*/ createSimulateContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'deposit',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"initialize"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const simulateContributorDepositInitialize = /*#__PURE__*/ createSimulateContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'initialize',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"renounceOwnership"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const simulateContributorDepositRenounceOwnership = /*#__PURE__*/ createSimulateContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'renounceOwnership',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"transferOwnership"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const simulateContributorDepositTransferOwnership = /*#__PURE__*/ createSimulateContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'transferOwnership',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link contributorDepositAbi}__ and `functionName` set to `"withdraw"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const simulateContributorDepositWithdraw = /*#__PURE__*/ createSimulateContract({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  functionName: 'withdraw',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link contributorDepositAbi}__
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const watchContributorDepositEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link contributorDepositAbi}__ and `eventName` set to `"CancelLock"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const watchContributorDepositCancelLockEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  eventName: 'CancelLock',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link contributorDepositAbi}__ and `eventName` set to `"Initialized"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const watchContributorDepositInitializedEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  eventName: 'Initialized',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link contributorDepositAbi}__ and `eventName` set to `"LockTask"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const watchContributorDepositLockTaskEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  eventName: 'LockTask',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link contributorDepositAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0x82CB92b8492FA45b2AaF30d362B6E3feaC9c8E71)
+ */
+export const watchContributorDepositOwnershipTransferredEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: contributorDepositAbi,
+  address: contributorDepositAddress,
+  eventName: 'OwnershipTransferred',
+})
+
+/**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc165UpgradeableAbi}__
  */
-export const readErc165Upgradeable = /*#__PURE__*/ createReadContract({ abi: erc165UpgradeableAbi })
+export const readErc165Upgradeable = /*#__PURE__*/ createReadContract({
+  abi: erc165UpgradeableAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc165UpgradeableAbi}__ and `functionName` set to `"supportsInterface"`
@@ -4667,32 +6574,50 @@ export const readErc20 = /*#__PURE__*/ createReadContract({ abi: erc20Abi })
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"allowance"`
  */
-export const readErc20Allowance = /*#__PURE__*/ createReadContract({ abi: erc20Abi, functionName: 'allowance' })
+export const readErc20Allowance = /*#__PURE__*/ createReadContract({
+  abi: erc20Abi,
+  functionName: 'allowance',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"balanceOf"`
  */
-export const readErc20BalanceOf = /*#__PURE__*/ createReadContract({ abi: erc20Abi, functionName: 'balanceOf' })
+export const readErc20BalanceOf = /*#__PURE__*/ createReadContract({
+  abi: erc20Abi,
+  functionName: 'balanceOf',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"decimals"`
  */
-export const readErc20Decimals = /*#__PURE__*/ createReadContract({ abi: erc20Abi, functionName: 'decimals' })
+export const readErc20Decimals = /*#__PURE__*/ createReadContract({
+  abi: erc20Abi,
+  functionName: 'decimals',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"name"`
  */
-export const readErc20Name = /*#__PURE__*/ createReadContract({ abi: erc20Abi, functionName: 'name' })
+export const readErc20Name = /*#__PURE__*/ createReadContract({
+  abi: erc20Abi,
+  functionName: 'name',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"symbol"`
  */
-export const readErc20Symbol = /*#__PURE__*/ createReadContract({ abi: erc20Abi, functionName: 'symbol' })
+export const readErc20Symbol = /*#__PURE__*/ createReadContract({
+  abi: erc20Abi,
+  functionName: 'symbol',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"totalSupply"`
  */
-export const readErc20TotalSupply = /*#__PURE__*/ createReadContract({ abi: erc20Abi, functionName: 'totalSupply' })
+export const readErc20TotalSupply = /*#__PURE__*/ createReadContract({
+  abi: erc20Abi,
+  functionName: 'totalSupply',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20Abi}__
@@ -4702,32 +6627,49 @@ export const writeErc20 = /*#__PURE__*/ createWriteContract({ abi: erc20Abi })
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"approve"`
  */
-export const writeErc20Approve = /*#__PURE__*/ createWriteContract({ abi: erc20Abi, functionName: 'approve' })
+export const writeErc20Approve = /*#__PURE__*/ createWriteContract({
+  abi: erc20Abi,
+  functionName: 'approve',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"transfer"`
  */
-export const writeErc20Transfer = /*#__PURE__*/ createWriteContract({ abi: erc20Abi, functionName: 'transfer' })
+export const writeErc20Transfer = /*#__PURE__*/ createWriteContract({
+  abi: erc20Abi,
+  functionName: 'transfer',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"transferFrom"`
  */
-export const writeErc20TransferFrom = /*#__PURE__*/ createWriteContract({ abi: erc20Abi, functionName: 'transferFrom' })
+export const writeErc20TransferFrom = /*#__PURE__*/ createWriteContract({
+  abi: erc20Abi,
+  functionName: 'transferFrom',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc20Abi}__
  */
-export const simulateErc20 = /*#__PURE__*/ createSimulateContract({ abi: erc20Abi })
+export const simulateErc20 = /*#__PURE__*/ createSimulateContract({
+  abi: erc20Abi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"approve"`
  */
-export const simulateErc20Approve = /*#__PURE__*/ createSimulateContract({ abi: erc20Abi, functionName: 'approve' })
+export const simulateErc20Approve = /*#__PURE__*/ createSimulateContract({
+  abi: erc20Abi,
+  functionName: 'approve',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"transfer"`
  */
-export const simulateErc20Transfer = /*#__PURE__*/ createSimulateContract({ abi: erc20Abi, functionName: 'transfer' })
+export const simulateErc20Transfer = /*#__PURE__*/ createSimulateContract({
+  abi: erc20Abi,
+  functionName: 'transfer',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"transferFrom"`
@@ -4740,22 +6682,32 @@ export const simulateErc20TransferFrom = /*#__PURE__*/ createSimulateContract({
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link erc20Abi}__
  */
-export const watchErc20Event = /*#__PURE__*/ createWatchContractEvent({ abi: erc20Abi })
+export const watchErc20Event = /*#__PURE__*/ createWatchContractEvent({
+  abi: erc20Abi,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link erc20Abi}__ and `eventName` set to `"Approval"`
  */
-export const watchErc20ApprovalEvent = /*#__PURE__*/ createWatchContractEvent({ abi: erc20Abi, eventName: 'Approval' })
+export const watchErc20ApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: erc20Abi,
+  eventName: 'Approval',
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link erc20Abi}__ and `eventName` set to `"Transfer"`
  */
-export const watchErc20TransferEvent = /*#__PURE__*/ createWatchContractEvent({ abi: erc20Abi, eventName: 'Transfer' })
+export const watchErc20TransferEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: erc20Abi,
+  eventName: 'Transfer',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20CappedUpgradeableAbi}__
  */
-export const readErc20CappedUpgradeable = /*#__PURE__*/ createReadContract({ abi: erc20CappedUpgradeableAbi })
+export const readErc20CappedUpgradeable = /*#__PURE__*/ createReadContract({
+  abi: erc20CappedUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20CappedUpgradeableAbi}__ and `functionName` set to `"allowance"`
@@ -4816,7 +6768,9 @@ export const readErc20CappedUpgradeableTotalSupply = /*#__PURE__*/ createReadCon
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20CappedUpgradeableAbi}__
  */
-export const writeErc20CappedUpgradeable = /*#__PURE__*/ createWriteContract({ abi: erc20CappedUpgradeableAbi })
+export const writeErc20CappedUpgradeable = /*#__PURE__*/ createWriteContract({
+  abi: erc20CappedUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20CappedUpgradeableAbi}__ and `functionName` set to `"approve"`
@@ -4905,7 +6859,9 @@ export const watchErc20CappedUpgradeableTransferEvent = /*#__PURE__*/ createWatc
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20UpgradeableAbi}__
  */
-export const readErc20Upgradeable = /*#__PURE__*/ createReadContract({ abi: erc20UpgradeableAbi })
+export const readErc20Upgradeable = /*#__PURE__*/ createReadContract({
+  abi: erc20UpgradeableAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc20UpgradeableAbi}__ and `functionName` set to `"allowance"`
@@ -4958,7 +6914,9 @@ export const readErc20UpgradeableTotalSupply = /*#__PURE__*/ createReadContract(
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20UpgradeableAbi}__
  */
-export const writeErc20Upgradeable = /*#__PURE__*/ createWriteContract({ abi: erc20UpgradeableAbi })
+export const writeErc20Upgradeable = /*#__PURE__*/ createWriteContract({
+  abi: erc20UpgradeableAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc20UpgradeableAbi}__ and `functionName` set to `"approve"`
@@ -4987,7 +6945,9 @@ export const writeErc20UpgradeableTransferFrom = /*#__PURE__*/ createWriteContra
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc20UpgradeableAbi}__
  */
-export const simulateErc20Upgradeable = /*#__PURE__*/ createSimulateContract({ abi: erc20UpgradeableAbi })
+export const simulateErc20Upgradeable = /*#__PURE__*/ createSimulateContract({
+  abi: erc20UpgradeableAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc20UpgradeableAbi}__ and `functionName` set to `"approve"`
@@ -5045,37 +7005,55 @@ export const watchErc20UpgradeableTransferEvent = /*#__PURE__*/ createWatchContr
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iaraTokenAbi}__
  */
-export const writeIaraToken = /*#__PURE__*/ createWriteContract({ abi: iaraTokenAbi })
+export const writeIaraToken = /*#__PURE__*/ createWriteContract({
+  abi: iaraTokenAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iaraTokenAbi}__ and `functionName` set to `"burn"`
  */
-export const writeIaraTokenBurn = /*#__PURE__*/ createWriteContract({ abi: iaraTokenAbi, functionName: 'burn' })
+export const writeIaraTokenBurn = /*#__PURE__*/ createWriteContract({
+  abi: iaraTokenAbi,
+  functionName: 'burn',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iaraTokenAbi}__ and `functionName` set to `"mint"`
  */
-export const writeIaraTokenMint = /*#__PURE__*/ createWriteContract({ abi: iaraTokenAbi, functionName: 'mint' })
+export const writeIaraTokenMint = /*#__PURE__*/ createWriteContract({
+  abi: iaraTokenAbi,
+  functionName: 'mint',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iaraTokenAbi}__
  */
-export const simulateIaraToken = /*#__PURE__*/ createSimulateContract({ abi: iaraTokenAbi })
+export const simulateIaraToken = /*#__PURE__*/ createSimulateContract({
+  abi: iaraTokenAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iaraTokenAbi}__ and `functionName` set to `"burn"`
  */
-export const simulateIaraTokenBurn = /*#__PURE__*/ createSimulateContract({ abi: iaraTokenAbi, functionName: 'burn' })
+export const simulateIaraTokenBurn = /*#__PURE__*/ createSimulateContract({
+  abi: iaraTokenAbi,
+  functionName: 'burn',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iaraTokenAbi}__ and `functionName` set to `"mint"`
  */
-export const simulateIaraTokenMint = /*#__PURE__*/ createSimulateContract({ abi: iaraTokenAbi, functionName: 'mint' })
+export const simulateIaraTokenMint = /*#__PURE__*/ createSimulateContract({
+  abi: iaraTokenAbi,
+  functionName: 'mint',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link iAccessControlAbi}__
  */
-export const readIAccessControl = /*#__PURE__*/ createReadContract({ abi: iAccessControlAbi })
+export const readIAccessControl = /*#__PURE__*/ createReadContract({
+  abi: iAccessControlAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link iAccessControlAbi}__ and `functionName` set to `"getRoleAdmin"`
@@ -5096,7 +7074,9 @@ export const readIAccessControlHasRole = /*#__PURE__*/ createReadContract({
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iAccessControlAbi}__
  */
-export const writeIAccessControl = /*#__PURE__*/ createWriteContract({ abi: iAccessControlAbi })
+export const writeIAccessControl = /*#__PURE__*/ createWriteContract({
+  abi: iAccessControlAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iAccessControlAbi}__ and `functionName` set to `"grantRole"`
@@ -5125,7 +7105,9 @@ export const writeIAccessControlRevokeRole = /*#__PURE__*/ createWriteContract({
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iAccessControlAbi}__
  */
-export const simulateIAccessControl = /*#__PURE__*/ createSimulateContract({ abi: iAccessControlAbi })
+export const simulateIAccessControl = /*#__PURE__*/ createSimulateContract({
+  abi: iAccessControlAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iAccessControlAbi}__ and `functionName` set to `"grantRole"`
@@ -5154,7 +7136,9 @@ export const simulateIAccessControlRevokeRole = /*#__PURE__*/ createSimulateCont
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link iAccessControlAbi}__
  */
-export const watchIAccessControlEvent = /*#__PURE__*/ createWatchContractEvent({ abi: iAccessControlAbi })
+export const watchIAccessControlEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: iAccessControlAbi,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link iAccessControlAbi}__ and `eventName` set to `"RoleAdminChanged"`
@@ -5181,9 +7165,39 @@ export const watchIAccessControlRoleRevokedEvent = /*#__PURE__*/ createWatchCont
 })
 
 /**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link iAddonAbi}__
+ */
+export const writeIAddon = /*#__PURE__*/ createWriteContract({ abi: iAddonAbi })
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link iAddonAbi}__ and `functionName` set to `"setProjectId"`
+ */
+export const writeIAddonSetProjectId = /*#__PURE__*/ createWriteContract({
+  abi: iAddonAbi,
+  functionName: 'setProjectId',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link iAddonAbi}__
+ */
+export const simulateIAddon = /*#__PURE__*/ createSimulateContract({
+  abi: iAddonAbi,
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link iAddonAbi}__ and `functionName` set to `"setProjectId"`
+ */
+export const simulateIAddonSetProjectId = /*#__PURE__*/ createSimulateContract({
+  abi: iAddonAbi,
+  functionName: 'setProjectId',
+})
+
+/**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iBridgeAbi}__
  */
-export const writeIBridge = /*#__PURE__*/ createWriteContract({ abi: iBridgeAbi })
+export const writeIBridge = /*#__PURE__*/ createWriteContract({
+  abi: iBridgeAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iBridgeAbi}__ and `functionName` set to `"transferOut"`
@@ -5196,7 +7210,9 @@ export const writeIBridgeTransferOut = /*#__PURE__*/ createWriteContract({
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iBridgeAbi}__
  */
-export const simulateIBridge = /*#__PURE__*/ createSimulateContract({ abi: iBridgeAbi })
+export const simulateIBridge = /*#__PURE__*/ createSimulateContract({
+  abi: iBridgeAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iBridgeAbi}__ and `functionName` set to `"transferOut"`
@@ -5204,6 +7220,71 @@ export const simulateIBridge = /*#__PURE__*/ createSimulateContract({ abi: iBrid
 export const simulateIBridgeTransferOut = /*#__PURE__*/ createSimulateContract({
   abi: iBridgeAbi,
   functionName: 'transferOut',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link iCheckAbi}__
+ */
+export const readICheck = /*#__PURE__*/ createReadContract({ abi: iCheckAbi })
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link iCheckAbi}__ and `functionName` set to `"addonPriceParams"`
+ */
+export const readICheckAddonPriceParams = /*#__PURE__*/ createReadContract({
+  abi: iCheckAbi,
+  functionName: 'addonPriceParams',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link iCheckAbi}__ and `functionName` set to `"checkAmountForCollateral"`
+ */
+export const readICheckCheckAmountForCollateral = /*#__PURE__*/ createReadContract({
+  abi: iCheckAbi,
+  functionName: 'checkAmountForCollateral',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link iCheckAbi}__ and `functionName` set to `"isCancelled"`
+ */
+export const readICheckIsCancelled = /*#__PURE__*/ createReadContract({
+  abi: iCheckAbi,
+  functionName: 'isCancelled',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link iCheckAbi}__ and `functionName` set to `"maintainerOf"`
+ */
+export const readICheckMaintainerOf = /*#__PURE__*/ createReadContract({
+  abi: iCheckAbi,
+  functionName: 'maintainerOf',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link iCheckAbi}__
+ */
+export const writeICheck = /*#__PURE__*/ createWriteContract({ abi: iCheckAbi })
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link iCheckAbi}__ and `functionName` set to `"mintByAddon"`
+ */
+export const writeICheckMintByAddon = /*#__PURE__*/ createWriteContract({
+  abi: iCheckAbi,
+  functionName: 'mintByAddon',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link iCheckAbi}__
+ */
+export const simulateICheck = /*#__PURE__*/ createSimulateContract({
+  abi: iCheckAbi,
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link iCheckAbi}__ and `functionName` set to `"mintByAddon"`
+ */
+export const simulateICheckMintByAddon = /*#__PURE__*/ createSimulateContract({
+  abi: iCheckAbi,
+  functionName: 'mintByAddon',
 })
 
 /**
@@ -5227,17 +7308,26 @@ export const readIerc20 = /*#__PURE__*/ createReadContract({ abi: ierc20Abi })
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"allowance"`
  */
-export const readIerc20Allowance = /*#__PURE__*/ createReadContract({ abi: ierc20Abi, functionName: 'allowance' })
+export const readIerc20Allowance = /*#__PURE__*/ createReadContract({
+  abi: ierc20Abi,
+  functionName: 'allowance',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"balanceOf"`
  */
-export const readIerc20BalanceOf = /*#__PURE__*/ createReadContract({ abi: ierc20Abi, functionName: 'balanceOf' })
+export const readIerc20BalanceOf = /*#__PURE__*/ createReadContract({
+  abi: ierc20Abi,
+  functionName: 'balanceOf',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"totalSupply"`
  */
-export const readIerc20TotalSupply = /*#__PURE__*/ createReadContract({ abi: ierc20Abi, functionName: 'totalSupply' })
+export const readIerc20TotalSupply = /*#__PURE__*/ createReadContract({
+  abi: ierc20Abi,
+  functionName: 'totalSupply',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc20Abi}__
@@ -5247,12 +7337,18 @@ export const writeIerc20 = /*#__PURE__*/ createWriteContract({ abi: ierc20Abi })
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"approve"`
  */
-export const writeIerc20Approve = /*#__PURE__*/ createWriteContract({ abi: ierc20Abi, functionName: 'approve' })
+export const writeIerc20Approve = /*#__PURE__*/ createWriteContract({
+  abi: ierc20Abi,
+  functionName: 'approve',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"transfer"`
  */
-export const writeIerc20Transfer = /*#__PURE__*/ createWriteContract({ abi: ierc20Abi, functionName: 'transfer' })
+export const writeIerc20Transfer = /*#__PURE__*/ createWriteContract({
+  abi: ierc20Abi,
+  functionName: 'transfer',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"transferFrom"`
@@ -5265,17 +7361,25 @@ export const writeIerc20TransferFrom = /*#__PURE__*/ createWriteContract({
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc20Abi}__
  */
-export const simulateIerc20 = /*#__PURE__*/ createSimulateContract({ abi: ierc20Abi })
+export const simulateIerc20 = /*#__PURE__*/ createSimulateContract({
+  abi: ierc20Abi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"approve"`
  */
-export const simulateIerc20Approve = /*#__PURE__*/ createSimulateContract({ abi: ierc20Abi, functionName: 'approve' })
+export const simulateIerc20Approve = /*#__PURE__*/ createSimulateContract({
+  abi: ierc20Abi,
+  functionName: 'approve',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"transfer"`
  */
-export const simulateIerc20Transfer = /*#__PURE__*/ createSimulateContract({ abi: ierc20Abi, functionName: 'transfer' })
+export const simulateIerc20Transfer = /*#__PURE__*/ createSimulateContract({
+  abi: ierc20Abi,
+  functionName: 'transfer',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc20Abi}__ and `functionName` set to `"transferFrom"`
@@ -5288,7 +7392,9 @@ export const simulateIerc20TransferFrom = /*#__PURE__*/ createSimulateContract({
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc20Abi}__
  */
-export const watchIerc20Event = /*#__PURE__*/ createWatchContractEvent({ abi: ierc20Abi })
+export const watchIerc20Event = /*#__PURE__*/ createWatchContractEvent({
+  abi: ierc20Abi,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc20Abi}__ and `eventName` set to `"Approval"`
@@ -5309,7 +7415,9 @@ export const watchIerc20TransferEvent = /*#__PURE__*/ createWatchContractEvent({
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20MetadataAbi}__
  */
-export const readIerc20Metadata = /*#__PURE__*/ createReadContract({ abi: ierc20MetadataAbi })
+export const readIerc20Metadata = /*#__PURE__*/ createReadContract({
+  abi: ierc20MetadataAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20MetadataAbi}__ and `functionName` set to `"allowance"`
@@ -5338,7 +7446,10 @@ export const readIerc20MetadataDecimals = /*#__PURE__*/ createReadContract({
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20MetadataAbi}__ and `functionName` set to `"name"`
  */
-export const readIerc20MetadataName = /*#__PURE__*/ createReadContract({ abi: ierc20MetadataAbi, functionName: 'name' })
+export const readIerc20MetadataName = /*#__PURE__*/ createReadContract({
+  abi: ierc20MetadataAbi,
+  functionName: 'name',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc20MetadataAbi}__ and `functionName` set to `"symbol"`
@@ -5359,7 +7470,9 @@ export const readIerc20MetadataTotalSupply = /*#__PURE__*/ createReadContract({
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc20MetadataAbi}__
  */
-export const writeIerc20Metadata = /*#__PURE__*/ createWriteContract({ abi: ierc20MetadataAbi })
+export const writeIerc20Metadata = /*#__PURE__*/ createWriteContract({
+  abi: ierc20MetadataAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc20MetadataAbi}__ and `functionName` set to `"approve"`
@@ -5388,7 +7501,9 @@ export const writeIerc20MetadataTransferFrom = /*#__PURE__*/ createWriteContract
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc20MetadataAbi}__
  */
-export const simulateIerc20Metadata = /*#__PURE__*/ createSimulateContract({ abi: ierc20MetadataAbi })
+export const simulateIerc20Metadata = /*#__PURE__*/ createSimulateContract({
+  abi: ierc20MetadataAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc20MetadataAbi}__ and `functionName` set to `"approve"`
@@ -5417,7 +7532,9 @@ export const simulateIerc20MetadataTransferFrom = /*#__PURE__*/ createSimulateCo
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc20MetadataAbi}__
  */
-export const watchIerc20MetadataEvent = /*#__PURE__*/ createWatchContractEvent({ abi: ierc20MetadataAbi })
+export const watchIerc20MetadataEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ierc20MetadataAbi,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc20MetadataAbi}__ and `eventName` set to `"Approval"`
@@ -5436,14 +7553,173 @@ export const watchIerc20MetadataTransferEvent = /*#__PURE__*/ createWatchContrac
 })
 
 /**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__
+ */
+export const readIerc721 = /*#__PURE__*/ createReadContract({ abi: ierc721Abi })
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"balanceOf"`
+ */
+export const readIerc721BalanceOf = /*#__PURE__*/ createReadContract({
+  abi: ierc721Abi,
+  functionName: 'balanceOf',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"getApproved"`
+ */
+export const readIerc721GetApproved = /*#__PURE__*/ createReadContract({
+  abi: ierc721Abi,
+  functionName: 'getApproved',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"isApprovedForAll"`
+ */
+export const readIerc721IsApprovedForAll = /*#__PURE__*/ createReadContract({
+  abi: ierc721Abi,
+  functionName: 'isApprovedForAll',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"ownerOf"`
+ */
+export const readIerc721OwnerOf = /*#__PURE__*/ createReadContract({
+  abi: ierc721Abi,
+  functionName: 'ownerOf',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"supportsInterface"`
+ */
+export const readIerc721SupportsInterface = /*#__PURE__*/ createReadContract({
+  abi: ierc721Abi,
+  functionName: 'supportsInterface',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__
+ */
+export const writeIerc721 = /*#__PURE__*/ createWriteContract({
+  abi: ierc721Abi,
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"approve"`
+ */
+export const writeIerc721Approve = /*#__PURE__*/ createWriteContract({
+  abi: ierc721Abi,
+  functionName: 'approve',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"safeTransferFrom"`
+ */
+export const writeIerc721SafeTransferFrom = /*#__PURE__*/ createWriteContract({
+  abi: ierc721Abi,
+  functionName: 'safeTransferFrom',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"setApprovalForAll"`
+ */
+export const writeIerc721SetApprovalForAll = /*#__PURE__*/ createWriteContract({
+  abi: ierc721Abi,
+  functionName: 'setApprovalForAll',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"transferFrom"`
+ */
+export const writeIerc721TransferFrom = /*#__PURE__*/ createWriteContract({
+  abi: ierc721Abi,
+  functionName: 'transferFrom',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__
+ */
+export const simulateIerc721 = /*#__PURE__*/ createSimulateContract({
+  abi: ierc721Abi,
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"approve"`
+ */
+export const simulateIerc721Approve = /*#__PURE__*/ createSimulateContract({
+  abi: ierc721Abi,
+  functionName: 'approve',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"safeTransferFrom"`
+ */
+export const simulateIerc721SafeTransferFrom = /*#__PURE__*/ createSimulateContract({
+  abi: ierc721Abi,
+  functionName: 'safeTransferFrom',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"setApprovalForAll"`
+ */
+export const simulateIerc721SetApprovalForAll = /*#__PURE__*/ createSimulateContract({
+  abi: ierc721Abi,
+  functionName: 'setApprovalForAll',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"transferFrom"`
+ */
+export const simulateIerc721TransferFrom = /*#__PURE__*/ createSimulateContract({
+  abi: ierc721Abi,
+  functionName: 'transferFrom',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__
+ */
+export const watchIerc721Event = /*#__PURE__*/ createWatchContractEvent({
+  abi: ierc721Abi,
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__ and `eventName` set to `"Approval"`
+ */
+export const watchIerc721ApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ierc721Abi,
+  eventName: 'Approval',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__ and `eventName` set to `"ApprovalForAll"`
+ */
+export const watchIerc721ApprovalForAllEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ierc721Abi,
+  eventName: 'ApprovalForAll',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__ and `eventName` set to `"Transfer"`
+ */
+export const watchIerc721TransferEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ierc721Abi,
+  eventName: 'Transfer',
+})
+
+/**
  * Wraps __{@link readContract}__ with `abi` set to __{@link imainTokenAbi}__
  */
-export const readImainToken = /*#__PURE__*/ createReadContract({ abi: imainTokenAbi })
+export const readImainToken = /*#__PURE__*/ createReadContract({
+  abi: imainTokenAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link imainTokenAbi}__ and `functionName` set to `"leader"`
  */
-export const readImainTokenLeader = /*#__PURE__*/ createReadContract({ abi: imainTokenAbi, functionName: 'leader' })
+export const readImainTokenLeader = /*#__PURE__*/ createReadContract({
+  abi: imainTokenAbi,
+  functionName: 'leader',
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link iMinterAbi}__
@@ -5469,27 +7745,39 @@ export const readIMinterIsCollateral = /*#__PURE__*/ createReadContract({
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iMinterAbi}__
  */
-export const writeIMinter = /*#__PURE__*/ createWriteContract({ abi: iMinterAbi })
+export const writeIMinter = /*#__PURE__*/ createWriteContract({
+  abi: iMinterAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iMinterAbi}__ and `functionName` set to `"redeem"`
  */
-export const writeIMinterRedeem = /*#__PURE__*/ createWriteContract({ abi: iMinterAbi, functionName: 'redeem' })
+export const writeIMinterRedeem = /*#__PURE__*/ createWriteContract({
+  abi: iMinterAbi,
+  functionName: 'redeem',
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iMinterAbi}__
  */
-export const simulateIMinter = /*#__PURE__*/ createSimulateContract({ abi: iMinterAbi })
+export const simulateIMinter = /*#__PURE__*/ createSimulateContract({
+  abi: iMinterAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iMinterAbi}__ and `functionName` set to `"redeem"`
  */
-export const simulateIMinterRedeem = /*#__PURE__*/ createSimulateContract({ abi: iMinterAbi, functionName: 'redeem' })
+export const simulateIMinterRedeem = /*#__PURE__*/ createSimulateContract({
+  abi: iMinterAbi,
+  functionName: 'redeem',
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iVestingAbi}__
  */
-export const writeIVesting = /*#__PURE__*/ createWriteContract({ abi: iVestingAbi })
+export const writeIVesting = /*#__PURE__*/ createWriteContract({
+  abi: iVestingAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link iVestingAbi}__ and `functionName` set to `"initVesting"`
@@ -5502,7 +7790,9 @@ export const writeIVestingInitVesting = /*#__PURE__*/ createWriteContract({
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iVestingAbi}__
  */
-export const simulateIVesting = /*#__PURE__*/ createSimulateContract({ abi: iVestingAbi })
+export const simulateIVesting = /*#__PURE__*/ createSimulateContract({
+  abi: iVestingAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link iVestingAbi}__ and `functionName` set to `"initVesting"`
@@ -5515,7 +7805,9 @@ export const simulateIVestingInitVesting = /*#__PURE__*/ createSimulateContract(
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link initializableAbi}__
  */
-export const watchInitializableEvent = /*#__PURE__*/ createWatchContractEvent({ abi: initializableAbi })
+export const watchInitializableEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: initializableAbi,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link initializableAbi}__ and `eventName` set to `"Initialized"`
@@ -5530,7 +7822,10 @@ export const watchInitializableInitializedEvent = /*#__PURE__*/ createWatchContr
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xE20A78EFA6A6f14CE1229f2CF34082ABb78e92Fd)
  */
-export const readMainToken = /*#__PURE__*/ createReadContract({ abi: mainTokenAbi, address: mainTokenAddress })
+export const readMainToken = /*#__PURE__*/ createReadContract({
+  abi: mainTokenAbi,
+  address: mainTokenAddress,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link mainTokenAbi}__ and `functionName` set to `"HALF_SUPPLY"`
@@ -5702,7 +7997,10 @@ export const readMainTokenTransferFrom = /*#__PURE__*/ createReadContract({
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xE20A78EFA6A6f14CE1229f2CF34082ABb78e92Fd)
  */
-export const writeMainToken = /*#__PURE__*/ createWriteContract({ abi: mainTokenAbi, address: mainTokenAddress })
+export const writeMainToken = /*#__PURE__*/ createWriteContract({
+  abi: mainTokenAbi,
+  address: mainTokenAddress,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link mainTokenAbi}__ and `functionName` set to `"approve"`
@@ -5808,7 +8106,10 @@ export const writeMainTokenTransferInit = /*#__PURE__*/ createWriteContract({
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0xE20A78EFA6A6f14CE1229f2CF34082ABb78e92Fd)
  */
-export const simulateMainToken = /*#__PURE__*/ createSimulateContract({ abi: mainTokenAbi, address: mainTokenAddress })
+export const simulateMainToken = /*#__PURE__*/ createSimulateContract({
+  abi: mainTokenAbi,
+  address: mainTokenAddress,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link mainTokenAbi}__ and `functionName` set to `"approve"`
@@ -5990,7 +8291,10 @@ export const watchMainTokenTransferEvent = /*#__PURE__*/ createWatchContractEven
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0x72Ed11B14C69D6C9faE5544dE44e2f9E27D1f81C)
  */
-export const readMinter = /*#__PURE__*/ createReadContract({ abi: minterAbi, address: minterAddress })
+export const readMinter = /*#__PURE__*/ createReadContract({
+  abi: minterAbi,
+  address: minterAddress,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link minterAbi}__ and `functionName` set to `"VOTING_PERIOD"`
@@ -6184,7 +8488,10 @@ export const readMinterVestings = /*#__PURE__*/ createReadContract({
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0x72Ed11B14C69D6C9faE5544dE44e2f9E27D1f81C)
  */
-export const writeMinter = /*#__PURE__*/ createWriteContract({ abi: minterAbi, address: minterAddress })
+export const writeMinter = /*#__PURE__*/ createWriteContract({
+  abi: minterAbi,
+  address: minterAddress,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link minterAbi}__ and `functionName` set to `"bridgeIn"`
@@ -6378,7 +8685,10 @@ export const writeMinterTransferOwnership = /*#__PURE__*/ createWriteContract({
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0x72Ed11B14C69D6C9faE5544dE44e2f9E27D1f81C)
  */
-export const simulateMinter = /*#__PURE__*/ createSimulateContract({ abi: minterAbi, address: minterAddress })
+export const simulateMinter = /*#__PURE__*/ createSimulateContract({
+  abi: minterAbi,
+  address: minterAddress,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link minterAbi}__ and `functionName` set to `"bridgeIn"`
@@ -6572,7 +8882,10 @@ export const simulateMinterTransferOwnership = /*#__PURE__*/ createSimulateContr
  *
  * [__View Contract on Base Basescan__](https://basescan.org/address/0x72Ed11B14C69D6C9faE5544dE44e2f9E27D1f81C)
  */
-export const watchMinterEvent = /*#__PURE__*/ createWatchContractEvent({ abi: minterAbi, address: minterAddress })
+export const watchMinterEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: minterAbi,
+  address: minterAddress,
+})
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link minterAbi}__ and `eventName` set to `"BridgeVote"`
@@ -6674,9 +8987,239 @@ export const watchMinterOwnershipTransferredEvent = /*#__PURE__*/ createWatchCon
 })
 
 /**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__
+ */
+export const readNftAddon = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"activeOrders"`
+ */
+export const readNftAddonActiveOrders = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'activeOrders',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"check"`
+ */
+export const readNftAddonCheck = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'check',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"nft"`
+ */
+export const readNftAddonNft = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'nft',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"orders"`
+ */
+export const readNftAddonOrders = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'orders',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"owner"`
+ */
+export const readNftAddonOwner = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'owner',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"params"`
+ */
+export const readNftAddonParams = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'params',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"projectId"`
+ */
+export const readNftAddonProjectId = /*#__PURE__*/ createReadContract({
+  abi: nftAddonAbi,
+  functionName: 'projectId',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__
+ */
+export const writeNftAddon = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"initialize"`
+ */
+export const writeNftAddonInitialize = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+  functionName: 'initialize',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"newOrder"`
+ */
+export const writeNftAddonNewOrder = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+  functionName: 'newOrder',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const writeNftAddonRenounceOwnership = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+  functionName: 'renounceOwnership',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"setProjectId"`
+ */
+export const writeNftAddonSetProjectId = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+  functionName: 'setProjectId',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"taskComplete"`
+ */
+export const writeNftAddonTaskComplete = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+  functionName: 'taskComplete',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const writeNftAddonTransferOwnership = /*#__PURE__*/ createWriteContract({
+  abi: nftAddonAbi,
+  functionName: 'transferOwnership',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__
+ */
+export const simulateNftAddon = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"initialize"`
+ */
+export const simulateNftAddonInitialize = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+  functionName: 'initialize',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"newOrder"`
+ */
+export const simulateNftAddonNewOrder = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+  functionName: 'newOrder',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const simulateNftAddonRenounceOwnership = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+  functionName: 'renounceOwnership',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"setProjectId"`
+ */
+export const simulateNftAddonSetProjectId = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+  functionName: 'setProjectId',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"taskComplete"`
+ */
+export const simulateNftAddonTaskComplete = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+  functionName: 'taskComplete',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link nftAddonAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const simulateNftAddonTransferOwnership = /*#__PURE__*/ createSimulateContract({
+  abi: nftAddonAbi,
+  functionName: 'transferOwnership',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__
+ */
+export const watchNftAddonEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const watchNftAddonInitializedEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+  eventName: 'Initialized',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__ and `eventName` set to `"NewOrder"`
+ */
+export const watchNftAddonNewOrderEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+  eventName: 'NewOrder',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__ and `eventName` set to `"OrderComplete"`
+ */
+export const watchNftAddonOrderCompleteEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+  eventName: 'OrderComplete',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const watchNftAddonOwnershipTransferredEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+  eventName: 'OwnershipTransferred',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__ and `eventName` set to `"ProjectIdSet"`
+ */
+export const watchNftAddonProjectIdSetEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+  eventName: 'ProjectIdSet',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nftAddonAbi}__ and `eventName` set to `"TaskComplete"`
+ */
+export const watchNftAddonTaskCompleteEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: nftAddonAbi,
+  eventName: 'TaskComplete',
+})
+
+/**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ownableUpgradeableAbi}__
  */
-export const readOwnableUpgradeable = /*#__PURE__*/ createReadContract({ abi: ownableUpgradeableAbi })
+export const readOwnableUpgradeable = /*#__PURE__*/ createReadContract({
+  abi: ownableUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ownableUpgradeableAbi}__ and `functionName` set to `"owner"`
@@ -6689,7 +9232,9 @@ export const readOwnableUpgradeableOwner = /*#__PURE__*/ createReadContract({
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ownableUpgradeableAbi}__
  */
-export const writeOwnableUpgradeable = /*#__PURE__*/ createWriteContract({ abi: ownableUpgradeableAbi })
+export const writeOwnableUpgradeable = /*#__PURE__*/ createWriteContract({
+  abi: ownableUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ownableUpgradeableAbi}__ and `functionName` set to `"renounceOwnership"`
@@ -6710,7 +9255,9 @@ export const writeOwnableUpgradeableTransferOwnership = /*#__PURE__*/ createWrit
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ownableUpgradeableAbi}__
  */
-export const simulateOwnableUpgradeable = /*#__PURE__*/ createSimulateContract({ abi: ownableUpgradeableAbi })
+export const simulateOwnableUpgradeable = /*#__PURE__*/ createSimulateContract({
+  abi: ownableUpgradeableAbi,
+})
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ownableUpgradeableAbi}__ and `functionName` set to `"renounceOwnership"`
@@ -6761,6 +9308,30 @@ export const readProjectCheckToken = /*#__PURE__*/ createReadContract({
 })
 
 /**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"addonPriceParams"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenAddonPriceParams = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'addonPriceParams',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"addons"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenAddons = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'addons',
+})
+
+/**
  * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"allowance"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -6782,6 +9353,30 @@ export const readProjectCheckTokenBalanceOf = /*#__PURE__*/ createReadContract({
   abi: projectCheckTokenAbi,
   address: projectCheckTokenAddress,
   functionName: 'balanceOf',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"checkAmountForCollateral"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenCheckAmountForCollateral = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'checkAmountForCollateral',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"checkPerCollateral"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenCheckPerCollateral = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'checkPerCollateral',
 })
 
 /**
@@ -6833,6 +9428,18 @@ export const readProjectCheckTokenDecimals = /*#__PURE__*/ createReadContract({
 })
 
 /**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"isCancelled"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenIsCancelled = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'isCancelled',
+})
+
+/**
  * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"isCollateral"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -6857,6 +9464,18 @@ export const readProjectCheckTokenMain = /*#__PURE__*/ createReadContract({
 })
 
 /**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"maintainerOf"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenMaintainerOf = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'maintainerOf',
+})
+
+/**
  * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"name"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -6878,6 +9497,18 @@ export const readProjectCheckTokenNewProjectVotings = /*#__PURE__*/ createReadCo
   abi: projectCheckTokenAbi,
   address: projectCheckTokenAddress,
   functionName: 'newProjectVotings',
+})
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"priceSetter"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const readProjectCheckTokenPriceSetter = /*#__PURE__*/ createReadContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'priceSetter',
 })
 
 /**
@@ -6988,6 +9619,30 @@ export const writeProjectCheckTokenMint = /*#__PURE__*/ createWriteContract({
 })
 
 /**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"mintByAddon"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const writeProjectCheckTokenMintByAddon = /*#__PURE__*/ createWriteContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'mintByAddon',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"newAddonInit"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const writeProjectCheckTokenNewAddonInit = /*#__PURE__*/ createWriteContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'newAddonInit',
+})
+
+/**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"newProjectAction"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -7036,6 +9691,18 @@ export const writeProjectCheckTokenRedeemFromTreasury = /*#__PURE__*/ createWrit
 })
 
 /**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"setCheckPerCollateral"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const writeProjectCheckTokenSetCheckPerCollateral = /*#__PURE__*/ createWriteContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'setCheckPerCollateral',
+})
+
+/**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"setCollateralAction"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -7069,6 +9736,18 @@ export const writeProjectCheckTokenSetCollateralVote = /*#__PURE__*/ createWrite
   abi: projectCheckTokenAbi,
   address: projectCheckTokenAddress,
   functionName: 'setCollateralVote',
+})
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"setPriceSetter"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const writeProjectCheckTokenSetPriceSetter = /*#__PURE__*/ createWriteContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'setPriceSetter',
 })
 
 /**
@@ -7155,6 +9834,30 @@ export const simulateProjectCheckTokenMint = /*#__PURE__*/ createSimulateContrac
 })
 
 /**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"mintByAddon"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const simulateProjectCheckTokenMintByAddon = /*#__PURE__*/ createSimulateContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'mintByAddon',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"newAddonInit"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const simulateProjectCheckTokenNewAddonInit = /*#__PURE__*/ createSimulateContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'newAddonInit',
+})
+
+/**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"newProjectAction"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -7203,6 +9906,18 @@ export const simulateProjectCheckTokenRedeemFromTreasury = /*#__PURE__*/ createS
 })
 
 /**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"setCheckPerCollateral"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const simulateProjectCheckTokenSetCheckPerCollateral = /*#__PURE__*/ createSimulateContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'setCheckPerCollateral',
+})
+
+/**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"setCollateralAction"`
  *
  * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
@@ -7236,6 +9951,18 @@ export const simulateProjectCheckTokenSetCollateralVote = /*#__PURE__*/ createSi
   abi: projectCheckTokenAbi,
   address: projectCheckTokenAddress,
   functionName: 'setCollateralVote',
+})
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `functionName` set to `"setPriceSetter"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const simulateProjectCheckTokenSetPriceSetter = /*#__PURE__*/ createSimulateContract({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  functionName: 'setPriceSetter',
 })
 
 /**
@@ -7343,6 +10070,18 @@ export const watchProjectCheckTokenMintEvent = /*#__PURE__*/ createWatchContract
   abi: projectCheckTokenAbi,
   address: projectCheckTokenAddress,
   eventName: 'Mint',
+})
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link projectCheckTokenAbi}__ and `eventName` set to `"NewAddonInit"`
+ *
+ * - [__View Contract on Linea Sepolia Testnet Etherscan__](https://sepolia.lineascan.build/address/0x0011764BfeeB78859dD044023AF6b6b6e17715f7)
+ * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x1cEB3c60e2E74D6FDDAcDFEE23b8f2C91BBB6996)
+ */
+export const watchProjectCheckTokenNewAddonInitEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: projectCheckTokenAbi,
+  address: projectCheckTokenAddress,
+  eventName: 'NewAddonInit',
 })
 
 /**
