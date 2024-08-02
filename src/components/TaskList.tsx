@@ -31,7 +31,7 @@ export function TaskList({ primaryCategory }: { primaryCategory: string }) {
     <NestedLayout>
       <div className='py-6 sm:py-8 min-h-screen	'>
         <div className='mx-auto max-w-7xl px-3 lg:px-4'>
-          <h2 className='text-xl mb-2'>Tasks in '{primaryCategory}' category</h2>
+          <h2 className='text-xl mb-2'>Tasks in &apos;{primaryCategory}&apos; category</h2>
           <dl className='grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3'>
             {stats.map((stat) => (
               <TaskCard key={stat._id + '-card'} task={stat}></TaskCard>
