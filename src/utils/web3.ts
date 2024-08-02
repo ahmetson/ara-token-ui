@@ -15,6 +15,21 @@ export const GetAbi = (abiName: string): any => {
   return undefined
 }
 
+export const GetAddr = (keyName: string, chainId: number): any => {
+  for (const [key, addrConf] of Object.entries(abis)) {
+    if (key === keyName) {
+      for (const [deployedChainId, addr] of Object.entries(addrConf)) {
+        if (deployedChainId.toString() === chainId.toString()) {
+          console.log(`Return address of ${keyName} in ${chainId} which is ${addr}`)
+          return addr
+        }
+      }
+    }
+  }
+
+  return undefined
+}
+
 export const WALLETCONNECT_PROJECT_ID = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? ''
 if (!WALLETCONNECT_PROJECT_ID) {
   console.warn('You need to provide a NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID env variable')

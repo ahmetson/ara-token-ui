@@ -5,25 +5,40 @@ import { LinkComponent } from '@/components/LinkComponent'
 import { NestedLayout } from '@/components/NestedLayout'
 import { TaskCard, TaskType } from '@/components/TaskCard'
 import { TaskList } from '@/components/TaskList'
-import { useSearchParams } from 'next/navigation'
+import { useNotifications } from '@/context/Notifications'
+import { GetAbi, GetAddr } from '@/utils/web3'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { formatEther, parseEther } from 'viem'
+import { useAccount, useReadContract, useSimulateContract, useWaitForTransactionReceipt, useWriteContract } from 'wagmi'
+
+const baseChainId = 8453
+const checkIcon = (
+  <svg
+    className='w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0'
+    aria-hidden='true'
+    xmlns='http://www.w3.org/2000/svg'
+    fill='currentColor'
+    viewBox='0 0 20 20'>
+    <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z' />
+  </svg>
+)
 
 export default function Task() {
   const searchParams = useSearchParams()
   const [task, setTask] = useState<TaskType | undefined>(undefined)
+  const { address, chainId, chain } = useAccount()
+  const { Add } = useNotifications()
+  const [approved, setApproved] = useState(false)
+  const router = useRouter()
+  const [araAddr, setAraAddr] = useState<`0x${string}` | undefined>(undefined)
+  const [araAbi, setAraAbi] = useState(undefined)
+  const [contributorDepositAddress, setContributorDepositAddress] = useState<`0x${string}` | undefined>(undefined)
+  const [contributorDepositAbi, setContributorDepositAbi] = useState(undefined)
 
   const id = searchParams.get('id')
-  const checkIcon = (
-    <svg
-      className='w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0'
-      aria-hidden='true'
-      xmlns='http://www.w3.org/2000/svg'
-      fill='currentColor'
-      viewBox='0 0 20 20'>
-      <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z' />
-    </svg>
-  )
 
+  // Fetch the task parameters
   useEffect(() => {
     let url = `${process.env.NEXT_PUBLIC_SERVER_URL!}/task/${id}`
     fetch(url, {
@@ -47,6 +62,153 @@ export default function Task() {
       })
       .catch((error) => console.log(error))
   }, [id])
+
+  useEffect(() => {
+    if (chainId === baseChainId) {
+      console.log(`Wallet connected`)
+      setAraAddr(GetAddr('araTokenAddress', baseChainId) as `0x${string}`)
+      setAraAbi(GetAbi('araTokenAbi'))
+      setContributorDepositAddress(GetAddr('contributorDepositAddress', baseChainId) as `0x${string}`)
+      setContributorDepositAbi(GetAbi('contributorDepositAbi'))
+    } else if (araAbi !== undefined) {
+      console.log(`network changed after setting base.org network params`)
+      setAraAddr(undefined)
+      setAraAbi(undefined)
+      setContributorDepositAddress(undefined)
+      setContributorDepositAbi(undefined)
+    }
+  }, [chainId])
+
+  ////////////////////////////////////////////////////////////
+  //
+  // Approving
+  //
+  ////////////////////////////////////////////////////////////
+  const { data: allowanceStatus } = useReadContract({
+    query: {
+      enabled: chainId !== undefined && araAddr !== undefined,
+    },
+    abi: araAbi,
+    address: araAddr,
+    functionName: 'allowance',
+    args: [address!, contributorDepositAddress],
+  })
+
+  useEffect(() => {
+    if (!chainId) {
+      return
+    }
+    const parsed = allowanceStatus as bigint | undefined
+    if (parsed !== undefined) {
+      if (parseFloat(formatEther(parsed)) > 0) {
+        setApproved(true)
+      }
+    }
+  }, [allowanceStatus])
+
+  ////////////////////////////////////////////////////////////
+  //
+  // Depositing
+  //
+  ////////////////////////////////////////////////////////////
+  const { error: estimateError } = useSimulateContract({
+    query: {
+      enabled: approved && task !== undefined && araAddr !== undefined,
+    },
+    abi: contributorDepositAbi,
+    address: contributorDepositAddress,
+    functionName: 'deposit',
+    args: [parseEther('1'), task?.projectId!, task?.checkProjectId!, task?._id!],
+  })
+
+  const { error: approveEstimateError } = useSimulateContract({
+    query: {
+      enabled: !approved && chainId === baseChainId && araAddr !== undefined,
+    },
+    abi: araAbi,
+    address: araAddr,
+    functionName: 'approve',
+    args: [contributorDepositAddress, parseEther('100000000')],
+  })
+
+  const { data, writeContract } = useWriteContract()
+  const { data: approveData, writeContract: writeApprove } = useWriteContract()
+
+  const {
+    isLoading,
+    error: txError,
+    isSuccess: txSuccess,
+  } = useWaitForTransactionReceipt({
+    hash: data,
+  })
+
+  const {
+    isLoading: approveIsLoading,
+    error: approveTxError,
+    isSuccess: approveTxSuccess,
+  } = useWaitForTransactionReceipt({
+    hash: approveData,
+  })
+
+  const handleSendTransation = () => {
+    if (!approved) {
+      if (approveEstimateError) {
+        console.error(approveEstimateError)
+        Add(`Approve simulation failed: ${approveEstimateError.cause}`, {
+          type: 'error',
+        })
+        return
+      }
+      writeApprove({
+        abi: araAbi!,
+        address: araAddr!,
+        functionName: 'approve',
+        args: [contributorDepositAddress!, parseEther('100000000')],
+      })
+    }
+    if (estimateError) {
+      console.error(approveEstimateError)
+      Add(`Simulation failed: ${estimateError.cause}`, {
+        type: 'error',
+      })
+      return
+    }
+    writeContract({
+      abi: contributorDepositAbi!,
+      address: contributorDepositAddress!,
+      functionName: 'deposit',
+      args: [parseEther('1'), task!.projectId, task!.checkProjectId!, task!._id],
+    })
+  }
+
+  useEffect(() => {
+    if (txSuccess) {
+      Add(`Transaction successful`, {
+        type: 'success',
+        href: chain?.blockExplorers?.default.url ? `${chain.blockExplorers.default.url}/tx/${data}` : undefined,
+      })
+      router.refresh()
+    } else if (txError) {
+      Add(`Transaction error: ${txError.cause}`, {
+        type: 'error',
+      })
+    }
+  }, [txSuccess, txError])
+
+  useEffect(() => {
+    if (approveTxSuccess) {
+      Add(`Approve successful`, {
+        type: 'success',
+        href: chain?.blockExplorers?.default.url ? `${chain.blockExplorers.default.url}/tx/${data}` : undefined,
+      })
+      setApproved(true)
+      handleSendTransation()
+    } else if (approveTxError) {
+      Add(`Approve error: ${approveTxError.cause}`, {
+        type: 'error',
+      })
+    }
+  }, [approveTxSuccess, approveTxError])
 
   return (
     <>
@@ -147,7 +309,18 @@ export default function Task() {
                       Requires {task.prize * 0.5} {task.prizeType.symbol} worth ARA
                     </div>
                     <div className='mx-auto'>
-                      <button className='btn btn-primary'>Book</button>
+                      <button
+                        className='btn btn-primary w-[100%]  m-2 w-1/4'
+                        onClick={handleSendTransation}
+                        disabled={!address || Boolean(estimateError)}>
+                        {isLoading || approveIsLoading ? (
+                          <span className='loading loading-dots loading-sm'></span>
+                        ) : approved ? (
+                          'Book'
+                        ) : (
+                          'Approve ARA'
+                        )}
+                      </button>
                     </div>
                     <div className='divider'></div>
                     <div className='card-actions justify-end'>

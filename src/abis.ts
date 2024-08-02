@@ -373,7 +373,7 @@ export const araTokenAbi = [
  * - [__View Contract on Linea Mainnet Etherscan__](https://lineascan.build/address/0x889400fb9bde04bfdf353cc718fed3d6ddcf735f)
  */
 export const araTokenAddress = {
-  8453: '0x8fAd4d86b6cc14798882B607cD62fbdc3b5a258c',
+  8453: '0x040eEE6D8da3092381Bc9DFaB8fD4A0A9D8eEBDa',
   59141: '0xe40c7856B6D0e1B01dECBF9976BB706B9Cd1229f',
   59144: '0x889400fB9BDE04BFdf353cC718fED3d6dDcF735F',
 } as const
