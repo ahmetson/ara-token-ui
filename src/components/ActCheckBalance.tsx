@@ -157,7 +157,12 @@ export default function ActProject({ project }: { project?: Project }) {
               <ul className='w-full text-sm font-medium '>
                 {project?.smartcontracts.Collaterals && project?.smartcontracts.Collaterals[chainId] ? (
                   project?.smartcontracts.Collaterals[chainId].map((token) => (
-                    <TreasuryCollateral project={project} token={token} checkBalance={balanceData?.value} />
+                    <TreasuryCollateral
+                      key={'check-balance-' + token.symbol}
+                      project={project}
+                      token={token}
+                      checkBalance={balanceData?.value}
+                    />
                   ))
                 ) : (
                   <></>

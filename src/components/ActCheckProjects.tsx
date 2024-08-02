@@ -207,7 +207,11 @@ export default function ActProject({ project }: { project?: Project }) {
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
               {totalProjectAmount !== undefined &&
                 [...Array(parseInt(totalProjectAmount!.toString()))].map((_, i) => {
-                  return <option value={i + 1}>{i + 1 + '. ' + project.checkProjectParams[i + 1].description}</option>
+                  return (
+                    <option key={'check-projects-' + i} value={i + 1}>
+                      {i + 1 + '. ' + project.checkProjectParams[i + 1].description}
+                    </option>
+                  )
                 })}
             </select>
           </form>
